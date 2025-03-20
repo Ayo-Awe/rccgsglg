@@ -3,7 +3,11 @@ import "./globals.css";
 import { Lato } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const lato = Lato({ weight: ["400", "700"], subsets: ["latin"] });
+const lato = Lato({
+  weight: ["100", "300", "700", "900"],
+  subsets: ["latin"],
+  style: "normal",
+});
 
 export const metadata = {
   title: "Shekinah Glory of the Living God",
