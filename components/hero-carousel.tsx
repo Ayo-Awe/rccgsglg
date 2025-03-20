@@ -1,22 +1,31 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const heroSlides = [
   {
     title: "Welcome to",
     subtitle: "SHEKINAH GLORY OF THE LIVING GOD",
-    description: "All glory to God in thy highest, amen; for His mercies endureth forever.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-XscmmfvABX5QkKAL4rvi21EGTGZ6wH.png",
+    description:
+      "All glory to God in thy highest, amen; for His mercies endureth forever.",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-XscmmfvABX5QkKAL4rvi21EGTGZ6wH.png",
     buttonText: "Watch Online",
     buttonLink: "/watch",
   },
   {
     title: "Join Us This Sunday",
     subtitle: "WORSHIP WITH US",
-    description: "Experience the presence of God in our vibrant worship services.",
+    description:
+      "Experience the presence of God in our vibrant worship services.",
     image: "/placeholder.svg?height=800&width=1200",
     buttonText: "Service Times",
     buttonLink: "/services",
@@ -29,11 +38,14 @@ const heroSlides = [
     buttonText: "Get Connected",
     buttonLink: "/connect",
   },
-]
+];
 
 export default function HeroCarousel() {
   return (
-    <Carousel className="w-full" opts={{ loop: true }}>
+    <Carousel
+      className="w-full rounded-3xl overflow-hidden"
+      opts={{ loop: true }}
+    >
       <CarouselContent>
         {heroSlides.map((slide, index) => (
           <CarouselItem key={index}>
@@ -57,13 +69,22 @@ export default function HeroCarousel() {
                   />
                   <span className="text-sm">WELCOME TO CHURCH</span>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-2">{slide.title}</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-2">
+                  {slide.title}
+                </h1>
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  <span className="text-[#d4af37]">{slide.subtitle.split(" ")[0]}</span>{" "}
+                  <span className="text-[#d4af37]">
+                    {slide.subtitle.split(" ")[0]}
+                  </span>{" "}
                   {slide.subtitle.split(" ").slice(1).join(" ")}
                 </h2>
-                <p className="max-w-2xl mb-8 text-center">{slide.description}</p>
-                <Button asChild className="bg-[#d4af37] hover:bg-[#b8971f] text-white">
+                <p className="max-w-2xl mb-8 text-center">
+                  {slide.description}
+                </p>
+                <Button
+                  asChild
+                  className="bg-[#d4af37] hover:bg-[#b8971f] text-white"
+                >
                   <Link href={slide.buttonLink} className="flex items-center">
                     {slide.buttonText} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -80,6 +101,5 @@ export default function HeroCarousel() {
         </div>
       </div>
     </Carousel>
-  )
+  );
 }
-
