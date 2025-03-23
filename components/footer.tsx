@@ -33,7 +33,7 @@ export default function Footer() {
             />
           </Link>
           <p className="text-near-white mb-6 text-justify max-w-[474px]">
-            Skekinah Glory of the living God is a branch of Redeemed Christian
+            Shekinah Glory of the living God is a branch of Redeemed Christian
             Church of God. Our biggest desire is that you grow in the knowledge
             of God and find practical answers to the tough questions of life.
             May God watch over you support you, and enrich your life with

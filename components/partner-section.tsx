@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -9,7 +8,7 @@ const ArrowRightIcon = () => (
 
 export default function PartnerSection() {
   return (
-    <section className="py-16 px-6 sm:py-15.5 md:px-12 lg:px-25.5  rounded-3xl bg-gradient-to-r from-[#B29D4D] to-[#4C4321] relative">
+    <section className="py-16 px-6 sm:py-15.5 md:px-12 lg:px-25.5  rounded-3xl bg-gradient-to-r from-rccg-yellow to-rccg-gold relative">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#fafafa] mb-6">

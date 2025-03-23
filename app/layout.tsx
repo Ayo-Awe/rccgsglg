@@ -1,6 +1,6 @@
 import type React from "react";
 import "./globals.css";
-import { Lato } from "next/font/google";
+import { Lato, AR_One_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const lato = Lato({
@@ -21,7 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${lato.className} px-4 sm:px-8 pb-4 sm:pb-8`}>
+      <body
+        className={`${lato.className} px-4 sm:px-8 pb-4 sm:pb-8 max-w-[1440px] mx-auto`}
+      >
         <ThemeProvider attribute="class" defaultTheme="light">
           {children}
         </ThemeProvider>
