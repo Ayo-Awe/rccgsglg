@@ -10,33 +10,22 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+import { Anton } from "next/font/google";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+});
+
 const heroSlides = [
   {
     title: "Welcome to",
     subtitle: "SHEKINAH GLORY OF THE LIVING GOD",
     description:
       "All glory to God in thy highest, amen; for His mercies endureth forever.",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-XscmmfvABX5QkKAL4rvi21EGTGZ6wH.png",
+    image: "/home_hero.png",
     buttonText: "Watch Online",
     buttonLink: "/watch",
-  },
-  {
-    title: "Join Us This Sunday",
-    subtitle: "WORSHIP WITH US",
-    description:
-      "Experience the presence of God in our vibrant worship services.",
-    image: "/placeholder.svg?height=800&width=1200",
-    buttonText: "Service Times",
-    buttonLink: "/services",
-  },
-  {
-    title: "Growing Together",
-    subtitle: "IN FAITH AND FELLOWSHIP",
-    description: "Become part of our community as we grow in Christ together.",
-    image: "/placeholder.svg?height=800&width=1200",
-    buttonText: "Get Connected",
-    buttonLink: "/connect",
   },
 ];
 
@@ -49,8 +38,8 @@ export default function HeroCarousel() {
       <CarouselContent>
         {heroSlides.map((slide, index) => (
           <CarouselItem key={index}>
-            <div className="relative h-[500px] bg-[#1a1a2e] text-white">
-              <div className="absolute inset-0 bg-black/50 z-10"></div>
+            <div className="relative h-[627px] bg-[#1a1a2e] text-white">
+              <div className="absolute inset-0 bg-[#15151b] opacity-70 z-10"></div>
               <Image
                 src={slide.image || "/placeholder.svg"}
                 alt={`${slide.title} ${slide.subtitle}`}
@@ -69,16 +58,20 @@ export default function HeroCarousel() {
                   />
                   <span className="text-sm">WELCOME TO CHURCH</span>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-2">
+                <h1
+                  className={`${anton.className} text-4xl md:text-5xl font-bold mb-2`}
+                >
                   {slide.title}
                 </h1>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  <span className="text-[#d4af37]">
+                <h2
+                  className={`${anton.className} text-4xl md:text-5xl font-bold mb-6`}
+                >
+                  <span className="text-rccg-yellow">
                     {slide.subtitle.split(" ")[0]}
                   </span>{" "}
                   {slide.subtitle.split(" ").slice(1).join(" ")}
                 </h2>
-                <p className="max-w-2xl mb-8 text-center">
+                <p className="max-w-2xl mb-8 text-center {}">
                   {slide.description}
                 </p>
                 <Button
