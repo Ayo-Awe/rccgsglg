@@ -1,6 +1,6 @@
 import type React from "react";
 import "./globals.css";
-import { Lato, AR_One_Sans } from "next/font/google";
+import { Lato } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const lato = Lato({

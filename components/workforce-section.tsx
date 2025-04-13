@@ -28,7 +28,7 @@ export default function WorkforceSection() {
             <h2
               className={`${anton.className} text-5xl font-bold text-[#1a1a2e] mb-6 leading-16`}
             >
-              Popularly Referred To As The Church's{" "}
+              Popularly Referred To As The Church&apos;s{" "}
               <span className="text-rccg-yellow">Workforce</span>
             </h2>
             <p className="text-rccg-dark-blue text-lg mb-18">

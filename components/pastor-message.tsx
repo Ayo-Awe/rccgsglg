@@ -37,16 +37,17 @@ export default function PastorMessage() {
                   It is with great pleasure and joy that we welcome you to our
                   growing and vibrant church, Shekinah Glory of The Living God a
                   branch of The Redeemed Christian Church of God. We pray that
-                  God's purposes and His will, and His presence will be
+                  God&apos;s purposes and His will, and His presence will be
                   followed. Your support through prayers and donations would be
                   greatly appreciated. One of the many things we do is make
                   mission supplies available, please stand with us as we seek to
-                  build God's Kingdom in some of the needier parts of the world.
+                  build God&apos;s Kingdom in some of the needier parts of the
+                  world.
                 </p>
                 <p>
                   It is our utmost desire and prayer that our heavenly Father
                   will watch over you, support you and enrich your life with
-                  unspeakable joy in Jesus' name, amen.
+                  unspeakable joy in Jesus&apos; name, amen.
                 </p>
               </div>
             </div>

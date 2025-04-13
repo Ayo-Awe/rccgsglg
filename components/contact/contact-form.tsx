@@ -56,7 +56,7 @@ export default function ContactForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit() {
     setIsLoading(true);
     try {
       // Here you would typically send the form data to your backend
@@ -65,7 +65,7 @@ export default function ContactForm() {
         description: "We'll get back to you as soon as possible.",
       });
       form.reset();
-    } catch (error) {
+    } catch {
       toast("Error", {
         description: "Something went wrong. Please try again.",
       });

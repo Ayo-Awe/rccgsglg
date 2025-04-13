@@ -95,7 +95,7 @@ export default function TestimonialsCarousel() {
                 <CarouselItem key={index}>
                   <div className="text-center flex flex-col h-full">
                     <p className="text-lg md:text-xl text-rccg-dark-blue mb-8 leading-6">
-                      "{testimonial.text}"
+                      &quot;{testimonial.text}&quot;
                     </p>
                     <p className="text-[#d4af37] text-xl font-medium">
                       {testimonial.author}
