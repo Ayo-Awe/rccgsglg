@@ -49,14 +49,10 @@ export default function HeroCarousel() {
               />
               <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
                 <div className="bg-white/10 px-4 py-1 rounded-full mb-4 flex items-center">
-                  <Image
-                    src="/placeholder.svg?height=20&width=20"
-                    alt="Church Icon"
-                    width={20}
-                    height={20}
-                    className="mr-2"
-                  />
-                  <span className="text-sm">WELCOME TO CHURCH</span>
+                  <span className="text-sm md:text-2xl mr-3">⛪</span>
+                  <span className="text-[8.5px] md:text-xs">
+                    WELCOME TO CHURCH
+                  </span>
                 </div>
                 <h1
                   className={`${anton.className} text-4xl md:text-5xl font-bold mb-2`}
