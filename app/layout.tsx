@@ -4,7 +4,7 @@ import { Lato } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const lato = Lato({
-  weight: ["100", "300", "700", "900"],
+  weight: ["100", "300", "400", "700", "900"],
   subsets: ["latin"],
   style: "normal",
 });
