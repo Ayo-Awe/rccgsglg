@@ -40,7 +40,7 @@ export default function AboutDescription() {
           preaching the word in a simple and straightforward manner. Our
           watchword is Jesus Christ, the same yersterday, today and forever.
           (Heb. 13: 8). <br /> I invite you to worship with us and discover the
-          riches of God's glory through genuine worship and sound biblical
+          riches of God&#39;s glory through genuine worship and sound biblical
           teachings.
         </p>
       </div>
