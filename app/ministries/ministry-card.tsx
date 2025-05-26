@@ -29,26 +29,26 @@ export default function MinistryCard({
   slug,
 }: MinistryCardProps) {
   return (
-    <Card className="bg-[#FAFAFA1A] rounded-[14px] border-[#FAFAFA1A] border-2 hover:border-[#d4af37]/50 transition-all relative overflow-hidden group">
+    <Card className="bg-[#FAFAFA1A] rounded-[14px] border-[#FAFAFA1A] border-2 hover:border-[#d4af37]/50 transition-all relative overflow-hidden group py-4">
       <Image
         src={icon}
         height={198}
         width={198}
         alt={`${title} icon`}
-        className="absolute top-0 right-0 ml-auto bg-center"
+        className="absolute top-0 right-0 ml-auto bg-center z-0"
       />
-      <CardContent className="pt-2">
+      <CardContent className="pt-2 px-4 z-1">
         <h3
-          className={`text-2xl font-bold text-white mb-3 ${roboto.className}`}
+          className={`text-xl lg:text-2xl font-bold text-white mb-3 ${roboto.className}`}
         >
           {title}
         </h3>
-        <p className={`text-white text-base ${poppins.className}`}>
+        <p className={`text-white text-sm lg:text-base ${poppins.className}`}>
           {description}
         </p>
       </CardContent>
 
-      <CardFooter className="ml-auto mt-auto">
+      <CardFooter className="ml-auto my-0 md:mt-auto py-0">
         {slug && (
           <Link
             href={`/ministries/${slug}`}

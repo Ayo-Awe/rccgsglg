@@ -111,8 +111,8 @@ const ministries = [
 
 export default function MinistriesGrid() {
   return (
-    <section className="px-12 pt-8 pb-16 bg-rccg-dark-blue my-10 md:mx-7.5 rounded-3xl relative overflow-hidden">
-      <div className="bg-white/10 px-4 py-1 rounded-full mb-8 flex items-center max-w-fit mx-auto">
+    <section className="px-6 lg:px-12 pt-8 pb-16 bg-rccg-dark-blue my-10 md:mx-7.5 rounded-3xl relative overflow-hidden">
+      <div className="bg-white/10 z-1 px-4 py-1 rounded-full mb-8 flex items-center max-w-fit mx-auto">
         <span
           className={`text-sm md:text-2xl font-thin mr-3 ${anton.className}`}
         >
@@ -122,7 +122,7 @@ export default function MinistriesGrid() {
       </div>
 
       <h2
-        className={`text-3xl md:text-4xl tracking-wider font-bold text-white text-center mb-8 ${anton.className}`}
+        className={`text-3xl z-1 md:text-4xl tracking-wider font-bold text-white text-center mb-8 ${anton.className}`}
       >
         Get Involved At <span className="text-[#DEC360]">SGLG</span>
       </h2>
@@ -133,6 +133,13 @@ export default function MinistriesGrid() {
         width={1586}
         alt="bg ellipse"
         className="invisible md:visible absolute left-0 bottom-0 z-0"
+      />
+      <Image
+        src="/ellipse_long.png"
+        height={3994}
+        width={684}
+        alt="bg ellipse"
+        className="md:invisible visible absolute left-0 bottom-0 z-0"
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 z-1">
