@@ -1,6 +1,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Anton } from "next/font/google";
-import { CoreValueAccordion, CoreValueProps } from "../core-value-accordion";
+import {
+  CoreValueAccordion,
+  CoreValueProps,
+} from "../../components/core-value-accordion";
 
 const anton = Anton({
   weight: "400",
@@ -203,7 +206,7 @@ export default function StatementsSection() {
         <Tabs defaultValue="faith" className="w-full">
           <div className="w-full px-2">
             <div className="overflow-x-auto -mx-2">
-              <TabsList className="rounded-sm bg-white/5 p-2 mb-2 inline-flex min-w-full">
+              <TabsList className="rounded-sm bg-white/5 p-2 mb-2 inline-flex">
                 {sections.map(({ name, title }) => (
                   <TabsTrigger
                     value={name}

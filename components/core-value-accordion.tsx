@@ -13,7 +13,7 @@ export interface CoreValueProps {
 }
 
 export function CoreValueAccordion({ values }: { values: CoreValueProps[] }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);

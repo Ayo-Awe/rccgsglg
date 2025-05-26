@@ -1,7 +1,7 @@
-import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
-import ContactForm from "@/components/contact/contact-form"
-import ContactInfo from "@/components/contact/contact-info"
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import ContactForm from "@/app/contact/contact-form";
+import ContactInfo from "@/app/contact/contact-info";
 
 export default function ContactPage() {
   return (
@@ -18,6 +18,5 @@ export default function ContactPage() {
       </div>
       <Footer />
     </main>
-  )
+  );
 }
-

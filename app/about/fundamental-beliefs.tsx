@@ -88,24 +88,26 @@ export default function FundamentalBeliefs() {
           Fundamental <br /> <span className="text-[#B29D4D]">Beliefs</span>
         </h2>
       </div>
-
-      <div className="grid md:grid-cols-2 col-span-7 gap-2.5 w-full">
+      <Accordion
+        type="single"
+        collapsible
+        className="grid md:grid-cols-2 col-span-7 gap-2.5 w-full"
+      >
         {beliefs.map((belief, index) => (
-          <Accordion key={index} type="single" collapsible>
-            <AccordionItem
-              value={belief.title}
-              className="bg-[#F2F2F7] rounded-xs"
-            >
-              <AccordionTrigger className="px-4 hover:no-underline">
-                {belief.title}
-              </AccordionTrigger>
-              <AccordionContent className="px-4 pb-4 text-muted-foreground">
-                {belief.content}
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          <AccordionItem
+            value={belief.title}
+            key={index}
+            className="bg-[#F2F2F7] rounded-xs border-none "
+          >
+            <AccordionTrigger className="px-4 hover:no-underline">
+              {belief.title}
+            </AccordionTrigger>
+            <AccordionContent className="px-4 pb-4 text-muted-foreground">
+              {belief.content}
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
     </section>
   );
 }

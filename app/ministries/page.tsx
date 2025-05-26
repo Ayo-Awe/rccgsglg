@@ -1,8 +1,8 @@
-import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
-import PartnerSection from "@/components/partner-section"
-import MinistriesHero from "@/components/ministries/hero"
-import MinistriesGrid from "@/components/ministries/grid"
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import PartnerSection from "@/components/partner-section";
+import MinistriesHero from "@/app/ministries/hero";
+import MinistriesGrid from "@/app/ministries/grid";
 
 export default function MinistriesPage() {
   return (
@@ -13,6 +13,5 @@ export default function MinistriesPage() {
       <PartnerSection />
       <Footer />
     </main>
-  )
+  );
 }
-

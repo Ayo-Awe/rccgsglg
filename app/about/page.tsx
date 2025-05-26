@@ -1,10 +1,10 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import PartnerSection from "@/components/partner-section";
-import AboutHero from "@/components/about/hero";
-import AboutDescription from "@/components/about/description";
-import FaithStatements from "@/components/about/faith-statements";
-import FundamentalBeliefs from "@/components/about/fundamental-beliefs";
+import AboutHero from "@/app/about/hero";
+import AboutDescription from "@/app/about/description";
+import FaithStatements from "@/app/about/faith-statements";
+import FundamentalBeliefs from "@/app/about/fundamental-beliefs";
 
 export default function AboutPage() {
   return (

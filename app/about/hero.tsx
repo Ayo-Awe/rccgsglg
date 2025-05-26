@@ -13,6 +13,7 @@ export default function AboutHero() {
       />
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
         <div className="bg-white/10 px-4 py-1 rounded-full mb-4 flex items-center">
+          <span className="text-sm md:text-2xl mr-3">⛪</span>
           <span className="text-sm">LEARN MORE</span>
         </div>
         <h1 className="text-4xl md:text-5xl font-bold">About Us</h1>
