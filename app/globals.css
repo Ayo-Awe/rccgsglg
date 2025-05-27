@@ -6,6 +6,9 @@
   --color-grey: #98a2b3;
   --color-rccg-yellow: #b29d4d;
   --color-rccg-gold: #4c4321;
+  --font-anton: var(--font-anton);
+  --font-lato: var(--font-lato);
+  --font-roboto: var(--font-roboto);
 }
 
 :root {
