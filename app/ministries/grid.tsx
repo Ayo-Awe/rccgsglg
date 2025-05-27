@@ -139,7 +139,7 @@ export default function MinistriesGrid() {
         height={3994}
         width={684}
         alt="bg ellipse"
-        className="md:invisible visible absolute left-0 bottom-0 z-0"
+        className="md:invisible visible absolute left-0 bottom-0 z-0 h-[99%]"
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 z-1">
