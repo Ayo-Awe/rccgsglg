@@ -4,7 +4,7 @@ export default function HouseFellowshipContent() {
   return (
     <>
       <Card className="border-none shadow-none mt-2">
-        <CardContent className="p-0 space-y-6 text-[#374151] font-roboto text:sm md:text-lg lg:text-xl">
+        <CardContent className="p-0 space-y-6 text-[#374151] font-medium font-roboto text:sm md:text-lg lg:text-xl">
           <section>
             <h2 className="font-bold ">KNOWING ONE ANOTHER</h2>
             <p>helping people discover and use their gifts.</p>

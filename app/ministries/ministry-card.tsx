@@ -23,7 +23,7 @@ export default function MinistryCard({
   const isClickable = Boolean(slug);
 
   return (
-    <Card className="relative bg-[#FAFAFA1A] rounded-[14px] border-[#FAFAFA1A] border-2 hover:border-[#d4af37]/50 transition-all overflow-hidden group py-4 h-full">
+    <Card className="relative bg-[#FAFAFA1A] rounded-[14px] border-[#FAFAFA1A] border-2 hover:border-[#d4af37]/50 transition-all overflow-hidden group py-4 h-full min-h-55">
       {isClickable && (
         // Invisible full‐cover link
         <Link

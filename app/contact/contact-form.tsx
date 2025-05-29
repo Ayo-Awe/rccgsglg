@@ -75,26 +75,42 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="shadow-lg">
+    <Card
+      className="border-none rounded-3xl py-10"
+      style={{
+        boxShadow: "4px 4px 24px 0px #00000040",
+      }}
+    >
       <CardHeader>
-        <CardTitle>Get in touch with us</CardTitle>
-        <CardDescription>
+        <CardTitle className="font-roboto font-semibold text-xl md:text-2xl text-rccg-dark-blue">
+          Get in touch with us
+        </CardTitle>
+        <CardDescription className="font-roboto font-normal text-[#94A3B8] text-sm md:text-base">
           Got questions or need more information? We are here and happy to help!
           Please leave a message and we will get back to you shortly.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="mt-5">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-6 md:space-y-8 font-roboto font-medium text-base text-[#374151]"
+          >
             <div className="grid md:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="firstName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>First Name</FormLabel>
+                    <FormLabel className="text-sm md:text-base">
+                      First Name
+                    </FormLabel>
                     <FormControl>
-                      <Input placeholder="Your First name" {...field} />
+                      <Input
+                        placeholder="Your First name"
+                        {...field}
+                        className="border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#CBD5E1] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -105,9 +121,15 @@ export default function ContactForm() {
                 name="lastName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Last Name</FormLabel>
+                    <FormLabel className="text-sm md:text-base">
+                      Last Name
+                    </FormLabel>
                     <FormControl>
-                      <Input placeholder="Your Last name" {...field} />
+                      <Input
+                        placeholder="Your Last name"
+                        {...field}
+                        className="border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#CBD5E1] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -121,9 +143,15 @@ export default function ContactForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className="text-sm md:text-base">
+                      Email
+                    </FormLabel>
                     <FormControl>
-                      <Input placeholder="Sample@gmail.com" {...field} />
+                      <Input
+                        placeholder="Sample@gmail.com"
+                        {...field}
+                        className="border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#CBD5E1] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -134,9 +162,15 @@ export default function ContactForm() {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
+                    <FormLabel className="text-sm md:text-base">
+                      Phone Number
+                    </FormLabel>
                     <FormControl>
-                      <Input placeholder="Your phone number" {...field} />
+                      <Input
+                        placeholder="Your phone number"
+                        {...field}
+                        className="border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#CBD5E1] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -149,11 +183,13 @@ export default function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel className="text-sm md:text-base">
+                    Message
+                  </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Type your message here......"
-                      className="min-h-[120px]"
+                      className="min-h-[160px] border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#CBD5E1] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
                       {...field}
                     />
                   </FormControl>
@@ -164,14 +200,14 @@ export default function ContactForm() {
 
             <Button
               type="submit"
-              className="w-full bg-[#d4af37] hover:bg-[#b8971f]"
+              className="bg-gradient-to-r from-rccg-yellow to-rccg-gold text-[#fafafa] py-3.75 px-8 h-15 rounded-sm w-full text-lg"
               disabled={isLoading}
             >
               {isLoading ? (
                 "Sending..."
               ) : (
                 <>
-                  Contact Us <Send className="ml-2 h-4 w-4" />
+                  Contact Us <Send className="ml-2 h-4.25 w-4.25" />
                 </>
               )}
             </Button>
