@@ -4,10 +4,10 @@ export default function HouseFellowshipHero() {
   return (
     <div className="relative">
       <div>
-        <h1 className="font-anton text-[32px] md:text-[42px] tracking-wider  font-bold text-[#0C0C0D]">
+        <h1 className="font-anton text-[28px] md:text-[32px] tracking-wider  font-bold text-[#0C0C0D]">
           FELLOWSHIPING AT RCCG SGLG
         </h1>
-        <div className="text-[#94A3B8] font-medium font-roboto text-sm md:text-xl">
+        <div className="text-[#94A3B8] font-medium font-roboto text-sm md:text-lg">
           <div>
             <Image
               src={"/hf_bible.svg"}
@@ -17,7 +17,7 @@ export default function HouseFellowshipHero() {
               className="inline mr-2"
             />
             <span>Luke 24:14-27, 30-32</span>
-            <span className="mx-2 inline-block text-3xl">•</span>
+            <span className="mx-2 inline-block">•</span>
             <span>Acts 2:42- 47</span>
           </div>
           <div>
@@ -29,7 +29,7 @@ export default function HouseFellowshipHero() {
               className="inline mr-2"
             />
             <span>Rom 16:1 — 16,17 (prayers), 18 — 20,21-24,25- 27</span>
-            <span className="mx-2 inline-block text-3xl">•</span>
+            <span className="mx-2 inline-block">•</span>
             <span>Celebration of the glory of God (v.25-27)</span>
           </div>
         </div>
