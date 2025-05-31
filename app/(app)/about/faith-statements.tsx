@@ -3,7 +3,7 @@ import { Anton } from "next/font/google";
 import {
   CoreValueAccordion,
   CoreValueProps,
-} from "../../components/core-value-accordion";
+} from "@/components/core-value-accordion";
 
 const anton = Anton({
   weight: "400",

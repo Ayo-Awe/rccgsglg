@@ -1,5 +1,5 @@
-import HouseFellowshipContent from "@/app/house-fellowship/content";
-import HouseFellowshipHero from "@/app/house-fellowship/hero";
+import HouseFellowshipContent from "@/app/(app)/house-fellowship/content";
+import HouseFellowshipHero from "@/app/(app)/house-fellowship/hero";
 
 export default function HouseFellowshipPage() {
   return (

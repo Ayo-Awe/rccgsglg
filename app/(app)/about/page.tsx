@@ -1,8 +1,8 @@
 import PartnerSection from "@/components/partner-section";
-import AboutHero from "@/app/about/hero";
-import AboutDescription from "@/app/about/description";
-import FaithStatements from "@/app/about/faith-statements";
-import FundamentalBeliefs from "@/app/about/fundamental-beliefs";
+import AboutHero from "@/app/(app)/about/hero";
+import AboutDescription from "@/app/(app)/about/description";
+import FaithStatements from "@/app/(app)/about/faith-statements";
+import FundamentalBeliefs from "@/app/(app)/about/fundamental-beliefs";
 
 export default function AboutPage() {
   return (

@@ -1,5 +1,5 @@
 import type React from "react";
-import "./globals.css";
+import "../globals.css";
 import { Anton, Lato, Roboto } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
