@@ -28,28 +28,15 @@ const ministries = [
     description:
       "This ministry focuses on supporting the Pastorate in prayer, interceding for the church and its members. The intercessors pray concerning major.",
     icon: "/min_intersessory.svg",
-    slug: "intersessory",
+    slug: "intercessory",
   },
-  {
-    title: "Children & Youth",
-    description:
-      "This ministry aims to prepare our youth as they venture into life that requires more understanding of the world we live in and prepare their mind.",
-    icon: "/min_children.svg",
-    slug: "children",
-  },
+
   {
     title: "Usher & Protocol",
     description:
       'For even the Son of Man did not come to be served, but to serve, and to give his life as a ransom for many." Mark 10:42-45.',
     icon: "/min_protocol.svg",
     slug: "protocol",
-  },
-  {
-    title: "Teaching/Training",
-    description:
-      "The Bible admonishes us to be diligent to present ourselves approved to God as a workman who does not need to be ashamed, handling.",
-    icon: "/min_training.svg",
-    slug: "teaching",
   },
   {
     title: "Welfare & Hospitality",
@@ -59,18 +46,31 @@ const ministries = [
     slug: "welfare",
   },
   {
-    title: "Multimedia",
-    description:
-      "Welcome to the RCCG SGLG Multimedia Department where our mission is 'Enhancing Your Worship Experience'.",
-    icon: "/min_multimedia.svg",
-  },
-  {
     title: "Technical/Engineering",
     description:
       "The Technical team are responsible for quality of sound and production of concepts derived from live recordings. They are accountable for the.",
     icon: "/min_technical.svg",
     slug: "technical",
   },
+  {
+    title: "Teaching/Training",
+    description:
+      "The Bible admonishes us to be diligent to present ourselves approved to God as a workman who does not need to be ashamed, handling.",
+    icon: "/min_training.svg",
+  },
+  {
+    title: "Children & Youth",
+    description:
+      "This ministry aims to prepare our youth as they venture into life that requires more understanding of the world we live in and prepare their mind.",
+    icon: "/min_children.svg",
+  },
+  {
+    title: "Multimedia",
+    description:
+      "Welcome to the RCCG SGLG Multimedia Department where our mission is 'Enhancing Your Worship Experience'.",
+    icon: "/min_multimedia.svg",
+  },
+
   {
     title: "Counselling/Visitation",
     description:
