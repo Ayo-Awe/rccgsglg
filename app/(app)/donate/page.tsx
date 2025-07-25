@@ -50,22 +50,22 @@ function AccountDetailsSection() {
       </div>
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-[#E7F4FF] p-3 rounded-sm">
-          <h3 className="mb-3 font-lato text-[#7F747C] uppercase text-lg">
+          <h3 className="mb-3 font-lato text-[#7F747C] uppercase ">
             Sort Code
           </h3>
           <div className="flex justify-between">
-            <p className="font-lato font-semibold text-[#374151] text-2xl">
+            <p className="font-lato font-semibold text-[#374151] text-xl">
               208057
             </p>
             <CopyToClipboard text="208057" />
           </div>
         </div>
         <div className="bg-[#E7F4FF] p-3 rounded-sm">
-          <h3 className="mb-3 font-lato text-[#7F747C] uppercase text-lg">
+          <h3 className="mb-3 font-lato text-[#7F747C] uppercase">
             Account Number
           </h3>
           <div className="flex justify-between">
-            <p className="font-lato font-semibold text-[#374151] text-2xl">
+            <p className="font-lato font-semibold text-[#374151] text-xl">
               6396 0919
             </p>
             <CopyToClipboard text="6396 0919" />

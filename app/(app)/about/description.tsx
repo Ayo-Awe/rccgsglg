@@ -27,7 +27,7 @@ export default function AboutDescription() {
         </h1>
       </div>
 
-      <div className="md:col-span-8 text-rccg-dark-blue text-sm  md:text-xl py-2 leading-[150%]">
+      <div className="md:col-span-8 text-rccg-dark-blue text-sm tracking-wide  md:text-lg py-2 leading-[150%]">
         <p>
           The Redeemed Christian Church of God, Shekhinah Glory of the Living
           God, a family church is a branch of The Redeemed Christian Church of

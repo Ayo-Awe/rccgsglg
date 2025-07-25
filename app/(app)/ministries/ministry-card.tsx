@@ -47,7 +47,7 @@ export default function MinistryCard({
         >
           {title}
         </h3>
-        <p className={`text-white text-sm lg:text-base ${poppins.className}`}>
+        <p className={`text-white text-sm  ${poppins.className}`}>
           {description}
         </p>
       </CardContent>

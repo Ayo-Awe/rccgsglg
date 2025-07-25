@@ -4,6 +4,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { AR_One_Sans } from "next/font/google";
@@ -18,8 +24,14 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Ministries", href: "/ministries" },
-  { name: "Resources", href: "/resources" },
   { name: "House Fellowship", href: "/house-fellowship" },
+];
+
+const resourcesLinks = [
+  { name: "Sermons", href: "/sermons" },
+  { name: "Publications", href: "/publications" },
+  { name: "Bible Study", href: "/bible-study" },
+  { name: "Prayer Requests", href: "/prayer-requests" },
 ];
 
 export default function Navbar() {
@@ -58,6 +70,34 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                className={`${arOneSans.className} flex items-center hover:cursor-pointer gap-1 text-rccg-dark-blue`}
+              >
+                Resources
+                {/* <ChevronDown className="h-4 w-4" /> */}
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              className="w-48 bg-white border-gray-400"
+              align="start"
+            >
+              {resourcesLinks.map((link) => (
+                <DropdownMenuItem
+                  key={link.name}
+                  asChild
+                  className="hover:cursor-pointer hover:text-rccg-yellow"
+                >
+                  <Link href={link.href} className={`${arOneSans.className}`}>
+                    {link.name}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <Button
             asChild
             className="bg-gradient-to-r from-rccg-yellow to-rccg-gold"

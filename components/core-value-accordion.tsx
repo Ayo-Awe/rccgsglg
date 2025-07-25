@@ -37,7 +37,7 @@ export function CoreValueAccordion({ values }: { values: CoreValueProps[] }) {
                   alt="icon"
                 />
               </div>
-              <h3 className="text-base md:text-xl font-bold">{value.title}</h3>
+              <h3 className="text-base md:text-lg font-bold">{value.title}</h3>
             </div>
             <button
               onClick={() => toggleAccordion(index)}

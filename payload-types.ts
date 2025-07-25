@@ -69,6 +69,8 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    sermons: Sermon;
+    sermon_documents: SermonDocument;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -77,6 +79,8 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    sermons: SermonsSelect<false> | SermonsSelect<true>;
+    sermon_documents: SermonDocumentsSelect<false> | SermonDocumentsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -150,6 +154,38 @@ export interface Media {
   focalY?: number | null;
 }
 /**
+ * A collection of sermons containing titles, documents, and dates. This collection is designed to organize and display sermon details.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sermons".
+ */
+export interface Sermon {
+  id: number;
+  title: string;
+  document: number | SermonDocument;
+  date: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sermon_documents".
+ */
+export interface SermonDocument {
+  id: number;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
@@ -163,6 +199,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'sermons';
+        value: number | Sermon;
+      } | null)
+    | ({
+        relationTo: 'sermon_documents';
+        value: number | SermonDocument;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -227,6 +271,34 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sermons_select".
+ */
+export interface SermonsSelect<T extends boolean = true> {
+  title?: T;
+  document?: T;
+  date?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sermon_documents_select".
+ */
+export interface SermonDocumentsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   url?: T;

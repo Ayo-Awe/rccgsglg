@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
+import { Providers } from "./providers";
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
@@ -38,14 +39,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lato.className} ${lato.variable} ${anton.variable} ${roboto.variable} px-4 sm:px-8 pb-4 sm:pb-8 max-w-[1440px] mx-auto`}
+        className={`${lato.className} ${lato.variable} ${anton.variable} ${roboto.variable}`}
       >
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <Navbar />
-          {children}
-          <Footer />
-          <Toaster />
-        </ThemeProvider>
+        <div className=" px-4 sm:px-8 pb-4 sm:pb-8 max-w-[1440px] mx-auto">
+          <ThemeProvider attribute="class" defaultTheme="light">
+            <Navbar />
+            <Providers>{children}</Providers>
+            <Footer />
+            <Toaster />
+          </ThemeProvider>
+        </div>
       </body>
     </html>
   );

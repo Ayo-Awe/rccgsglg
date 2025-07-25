@@ -5,9 +5,11 @@ import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import { openapi, redoc } from "payload-oapi";
+import { s3Storage } from "@payloadcms/storage-s3";
 
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
+import { SermonDocuments, Sermons } from "./collections/Sermons";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -19,7 +21,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
+  collections: [Users, Media, Sermons, SermonDocuments],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
@@ -36,7 +38,29 @@ export default buildConfig({
       metadata: { title: "Dev API", version: "0.0.1" },
     }),
     redoc({}),
-
-    // storage-adapter-placeholder
+    s3Storage({
+      collections: {
+        media: {
+          generateFileURL: ({ filename }) => {
+            return process.env.S3_PUBLIC_URL + "/" + filename;
+          },
+        },
+        sermon_documents: {
+          generateFileURL: ({ filename }) => {
+            return process.env.S3_PUBLIC_URL + "/" + filename;
+          },
+        },
+      },
+      clientUploads: true,
+      bucket: process.env.S3_BUCKET || "",
+      config: {
+        endpoint: process.env.S3_ENDPOINT || "",
+        credentials: {
+          accessKeyId: process.env.S3_ACCESS_KEY_ID || "",
+          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || "",
+        },
+        region: process.env.S3_REGION,
+      },
+    }),
   ],
 });

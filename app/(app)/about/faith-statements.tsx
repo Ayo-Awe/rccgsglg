@@ -132,7 +132,7 @@ function FaithStatements() {
         {faithStatements.map((statement, index) => (
           <div
             key={index}
-            className="p-2.5 bg-[#FAFAFA0D] rounded-lg text-sm  md:text-lg"
+            className="p-2.5 bg-[#FAFAFA0D] rounded-lg text-sm  md:text-base"
           >
             {statement.title}
           </div>
@@ -166,13 +166,13 @@ function MissionAndVision() {
           {missionVision.map((statement, index) => (
             <div
               key={index}
-              className="p-2.5 bg-[#FAFAFA0D] rounded-lg text-sm md:text-lg"
+              className="p-2.5 bg-[#FAFAFA0D] rounded-lg text-sm md:text-base"
             >
               {statement.title}
             </div>
           ))}
         </div>
-        <p className="px-2.5 py-6 max-w-2xl text-sm md:text-lg">
+        <p className="px-2.5 py-6 max-w-2xl text-sm md:text-base">
           *We will pursue these objectives until every Nation in the world is
           reached for the Lord Jesus Christ.
         </p>

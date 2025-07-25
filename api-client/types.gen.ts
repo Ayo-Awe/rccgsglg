@@ -39,6 +39,37 @@ export type Media = {
 };
 
 /**
+ * Sermon
+ * A collection of sermons containing titles, documents, and dates. This collection is designed to organize and display sermon details.
+ */
+export type Sermon = {
+    id: string;
+    title: string;
+    document: string | SermonDocument;
+    date: string;
+    updatedAt: string;
+    createdAt: string;
+};
+
+/**
+ * Sermon_document
+ */
+export type SermonDocument = {
+    id: string;
+    updatedAt: string;
+    createdAt: string;
+    url?: string | null;
+    thumbnailURL?: string | null;
+    filename?: string | null;
+    mimeType?: string | null;
+    filesize?: number | null;
+    width?: number | null;
+    height?: number | null;
+    focalX?: number | null;
+    focalY?: number | null;
+};
+
+/**
  * Payload Locked Document
  */
 export type PayloadLockedDocument = {
@@ -49,6 +80,12 @@ export type PayloadLockedDocument = {
     } | null | {
         relationTo: 'media';
         value: string | Media;
+    } | {
+        relationTo: 'sermons';
+        value: string | Sermon;
+    } | {
+        relationTo: 'sermon_documents';
+        value: string | SermonDocument;
     };
     globalSlug?: string | null;
     user: {
@@ -319,6 +356,186 @@ export type MediaQueryOperationsOr = {
 };
 
 /**
+ * Sermon query operations
+ */
+export type SermonQueryOperations = {
+    title?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        like?: string;
+        contains?: string;
+    };
+    date?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        greater_than?: string;
+        greater_than_equal?: string;
+        less_than?: string;
+        less_than_equal?: string;
+    };
+    updatedAt?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        greater_than?: string;
+        greater_than_equal?: string;
+        less_than?: string;
+        less_than_equal?: string;
+    };
+    createdAt?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        greater_than?: string;
+        greater_than_equal?: string;
+        less_than?: string;
+        less_than_equal?: string;
+    };
+};
+
+/**
+ * Sermon query conjunction
+ */
+export type SermonQueryOperationsAnd = {
+    and: Array<SermonQueryOperations | SermonQueryOperationsAnd | SermonQueryOperationsOr>;
+};
+
+/**
+ * Sermon query disjunction
+ */
+export type SermonQueryOperationsOr = {
+    or: Array<SermonQueryOperations | SermonQueryOperationsAnd | SermonQueryOperationsOr>;
+};
+
+/**
+ * Sermon_document query operations
+ */
+export type SermonDocumentQueryOperations = {
+    updatedAt?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        greater_than?: string;
+        greater_than_equal?: string;
+        less_than?: string;
+        less_than_equal?: string;
+    };
+    createdAt?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        greater_than?: string;
+        greater_than_equal?: string;
+        less_than?: string;
+        less_than_equal?: string;
+    };
+    url?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        like?: string;
+        contains?: string;
+    };
+    thumbnailURL?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        like?: string;
+        contains?: string;
+    };
+    filename?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        like?: string;
+        contains?: string;
+    };
+    mimeType?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        like?: string;
+        contains?: string;
+    };
+    filesize?: {
+        equals?: number;
+        not_equals?: number;
+        in?: string;
+        not_in?: string;
+        greater_than?: number;
+        greater_than_equal?: number;
+        less_than?: number;
+        less_than_equal?: number;
+    };
+    width?: {
+        equals?: number;
+        not_equals?: number;
+        in?: string;
+        not_in?: string;
+        greater_than?: number;
+        greater_than_equal?: number;
+        less_than?: number;
+        less_than_equal?: number;
+    };
+    height?: {
+        equals?: number;
+        not_equals?: number;
+        in?: string;
+        not_in?: string;
+        greater_than?: number;
+        greater_than_equal?: number;
+        less_than?: number;
+        less_than_equal?: number;
+    };
+    focalX?: {
+        equals?: number;
+        not_equals?: number;
+        in?: string;
+        not_in?: string;
+        greater_than?: number;
+        greater_than_equal?: number;
+        less_than?: number;
+        less_than_equal?: number;
+    };
+    focalY?: {
+        equals?: number;
+        not_equals?: number;
+        in?: string;
+        not_in?: string;
+        greater_than?: number;
+        greater_than_equal?: number;
+        less_than?: number;
+        less_than_equal?: number;
+    };
+};
+
+/**
+ * Sermon_document query conjunction
+ */
+export type SermonDocumentQueryOperationsAnd = {
+    and: Array<SermonDocumentQueryOperations | SermonDocumentQueryOperationsAnd | SermonDocumentQueryOperationsOr>;
+};
+
+/**
+ * Sermon_document query disjunction
+ */
+export type SermonDocumentQueryOperationsOr = {
+    or: Array<SermonDocumentQueryOperations | SermonDocumentQueryOperationsAnd | SermonDocumentQueryOperationsOr>;
+};
+
+/**
  * Payload Locked Document query operations
  */
 export type PayloadLockedDocumentQueryOperations = {
@@ -505,12 +722,38 @@ export type MediaRequestBody = {
 };
 
 /**
+ * Sermon
+ * A collection of sermons containing titles, documents, and dates. This collection is designed to organize and display sermon details.
+ */
+export type SermonRequestBody = {
+    title: string;
+    document: string | SermonDocument;
+    date: string;
+};
+
+/**
+ * Sermon_document
+ * Sermon_document
+ */
+export type SermonDocumentRequestBody = {
+    url?: string | null;
+    thumbnailURL?: string | null;
+    filename?: string | null;
+    mimeType?: string | null;
+    filesize?: number | null;
+    width?: number | null;
+    height?: number | null;
+    focalX?: number | null;
+    focalY?: number | null;
+};
+
+/**
  * PayloadLockedDocument
  * Payload Locked Document
  */
 export type PayloadLockedDocumentRequestBody = {
     /**
-     * ID of the users/media
+     * ID of the users/media/sermons/sermon_documents
      */
     document?: string;
     globalSlug?: string | null;
@@ -861,6 +1104,324 @@ export type PatchApiMediaByIdResponses = {
 };
 
 export type PatchApiMediaByIdResponse = PatchApiMediaByIdResponses[keyof PatchApiMediaByIdResponses];
+
+export type GetApiSermonsData = {
+    body?: never;
+    path?: never;
+    query?: {
+        page?: number;
+        limit?: number;
+        depth?: number;
+        locale?: string;
+        'fallback-locale'?: string;
+        sort?: 'title' | '-title' | 'date' | '-date' | 'updatedAt' | '-updatedAt' | 'createdAt' | '-createdAt';
+        where?: {
+            [key: string]: unknown;
+        } & (SermonQueryOperations | SermonQueryOperationsAnd | SermonQueryOperationsOr);
+    };
+    url: '/api/sermons';
+};
+
+export type GetApiSermonsResponses = {
+    /**
+     * List of Sermons
+     */
+    200: {
+        docs: Array<Sermon>;
+        totalDocs: number;
+        limit: number;
+        totalPages: number;
+        page: number;
+        pagingCounter: number;
+        hasPrevPage: boolean;
+        hasNextPage: boolean;
+        prevPage: number | null;
+        nextPage: number | null;
+    };
+};
+
+export type GetApiSermonsResponse = GetApiSermonsResponses[keyof GetApiSermonsResponses];
+
+export type PostApiSermonsData = {
+    /**
+     * Sermon
+     */
+    body?: SermonRequestBody;
+    path?: never;
+    query?: never;
+    url: '/api/sermons';
+};
+
+export type PostApiSermonsResponses = {
+    /**
+     * Sermon object
+     */
+    201: {
+        message: string;
+        doc: Sermon & {
+            id: string;
+            createdAt: string;
+            updatedAt: string;
+        };
+    };
+};
+
+export type PostApiSermonsResponse = PostApiSermonsResponses[keyof PostApiSermonsResponses];
+
+export type DeleteApiSermonsByIdData = {
+    body?: never;
+    path: {
+        /**
+         * ID of the Sermon
+         */
+        id: string;
+    };
+    query?: {
+        depth?: number;
+        locale?: string;
+        'fallback-locale'?: string;
+    };
+    url: '/api/sermons/{id}';
+};
+
+export type DeleteApiSermonsByIdErrors = {
+    /**
+     * Sermon not found
+     */
+    404: unknown;
+};
+
+export type DeleteApiSermonsByIdResponses = {
+    /**
+     * Sermon object
+     */
+    200: Sermon;
+};
+
+export type DeleteApiSermonsByIdResponse = DeleteApiSermonsByIdResponses[keyof DeleteApiSermonsByIdResponses];
+
+export type GetApiSermonsByIdData = {
+    body?: never;
+    path: {
+        /**
+         * ID of the Sermon
+         */
+        id: string;
+    };
+    query?: {
+        depth?: number;
+        locale?: string;
+        'fallback-locale'?: string;
+    };
+    url: '/api/sermons/{id}';
+};
+
+export type GetApiSermonsByIdErrors = {
+    /**
+     * Sermon not found
+     */
+    404: unknown;
+};
+
+export type GetApiSermonsByIdResponses = {
+    /**
+     * Sermon object
+     */
+    200: Sermon;
+};
+
+export type GetApiSermonsByIdResponse = GetApiSermonsByIdResponses[keyof GetApiSermonsByIdResponses];
+
+export type PatchApiSermonsByIdData = {
+    body?: never;
+    path: {
+        /**
+         * ID of the Sermon
+         */
+        id: string;
+    };
+    query?: {
+        depth?: number;
+        locale?: string;
+        'fallback-locale'?: string;
+    };
+    url: '/api/sermons/{id}';
+};
+
+export type PatchApiSermonsByIdErrors = {
+    /**
+     * Sermon not found
+     */
+    404: unknown;
+};
+
+export type PatchApiSermonsByIdResponses = {
+    /**
+     * Sermon object
+     */
+    200: Sermon;
+};
+
+export type PatchApiSermonsByIdResponse = PatchApiSermonsByIdResponses[keyof PatchApiSermonsByIdResponses];
+
+export type GetApiSermonDocumentsData = {
+    body?: never;
+    path?: never;
+    query?: {
+        page?: number;
+        limit?: number;
+        depth?: number;
+        locale?: string;
+        'fallback-locale'?: string;
+        sort?: 'updatedAt' | '-updatedAt' | 'createdAt' | '-createdAt' | 'url' | '-url' | 'thumbnailURL' | '-thumbnailURL' | 'filename' | '-filename' | 'mimeType' | '-mimeType' | 'filesize' | '-filesize' | 'width' | '-width' | 'height' | '-height' | 'focalX' | '-focalX' | 'focalY' | '-focalY';
+        where?: {
+            [key: string]: unknown;
+        } & (SermonDocumentQueryOperations | SermonDocumentQueryOperationsAnd | SermonDocumentQueryOperationsOr);
+    };
+    url: '/api/sermon_documents';
+};
+
+export type GetApiSermonDocumentsResponses = {
+    /**
+     * List of Sermon_documents
+     */
+    200: {
+        docs: Array<SermonDocument>;
+        totalDocs: number;
+        limit: number;
+        totalPages: number;
+        page: number;
+        pagingCounter: number;
+        hasPrevPage: boolean;
+        hasNextPage: boolean;
+        prevPage: number | null;
+        nextPage: number | null;
+    };
+};
+
+export type GetApiSermonDocumentsResponse = GetApiSermonDocumentsResponses[keyof GetApiSermonDocumentsResponses];
+
+export type PostApiSermonDocumentsData = {
+    /**
+     * Sermon_document
+     */
+    body?: SermonDocumentRequestBody;
+    path?: never;
+    query?: never;
+    url: '/api/sermon_documents';
+};
+
+export type PostApiSermonDocumentsResponses = {
+    /**
+     * Sermon_document object
+     */
+    201: {
+        message: string;
+        doc: SermonDocument & {
+            id: string;
+            createdAt: string;
+            updatedAt: string;
+        };
+    };
+};
+
+export type PostApiSermonDocumentsResponse = PostApiSermonDocumentsResponses[keyof PostApiSermonDocumentsResponses];
+
+export type DeleteApiSermonDocumentsByIdData = {
+    body?: never;
+    path: {
+        /**
+         * ID of the Sermon_document
+         */
+        id: string;
+    };
+    query?: {
+        depth?: number;
+        locale?: string;
+        'fallback-locale'?: string;
+    };
+    url: '/api/sermon_documents/{id}';
+};
+
+export type DeleteApiSermonDocumentsByIdErrors = {
+    /**
+     * Sermon_document not found
+     */
+    404: unknown;
+};
+
+export type DeleteApiSermonDocumentsByIdResponses = {
+    /**
+     * Sermon_document object
+     */
+    200: SermonDocument;
+};
+
+export type DeleteApiSermonDocumentsByIdResponse = DeleteApiSermonDocumentsByIdResponses[keyof DeleteApiSermonDocumentsByIdResponses];
+
+export type GetApiSermonDocumentsByIdData = {
+    body?: never;
+    path: {
+        /**
+         * ID of the Sermon_document
+         */
+        id: string;
+    };
+    query?: {
+        depth?: number;
+        locale?: string;
+        'fallback-locale'?: string;
+    };
+    url: '/api/sermon_documents/{id}';
+};
+
+export type GetApiSermonDocumentsByIdErrors = {
+    /**
+     * Sermon_document not found
+     */
+    404: unknown;
+};
+
+export type GetApiSermonDocumentsByIdResponses = {
+    /**
+     * Sermon_document object
+     */
+    200: SermonDocument;
+};
+
+export type GetApiSermonDocumentsByIdResponse = GetApiSermonDocumentsByIdResponses[keyof GetApiSermonDocumentsByIdResponses];
+
+export type PatchApiSermonDocumentsByIdData = {
+    body?: never;
+    path: {
+        /**
+         * ID of the Sermon_document
+         */
+        id: string;
+    };
+    query?: {
+        depth?: number;
+        locale?: string;
+        'fallback-locale'?: string;
+    };
+    url: '/api/sermon_documents/{id}';
+};
+
+export type PatchApiSermonDocumentsByIdErrors = {
+    /**
+     * Sermon_document not found
+     */
+    404: unknown;
+};
+
+export type PatchApiSermonDocumentsByIdResponses = {
+    /**
+     * Sermon_document object
+     */
+    200: SermonDocument;
+};
+
+export type PatchApiSermonDocumentsByIdResponse = PatchApiSermonDocumentsByIdResponses[keyof PatchApiSermonDocumentsByIdResponses];
 
 export type GetApiPayloadLockedDocumentsData = {
     body?: never;
