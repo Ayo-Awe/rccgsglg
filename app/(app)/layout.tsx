@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
 import { Providers } from "./providers";
+import { WordOfTheWeekProvider } from "@/components/word-of-the-week-provider";
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
@@ -47,6 +48,7 @@ export default function RootLayout({
             <Providers>{children}</Providers>
             <Footer />
             <Toaster />
+            <WordOfTheWeekProvider />
           </ThemeProvider>
         </div>
       </body>

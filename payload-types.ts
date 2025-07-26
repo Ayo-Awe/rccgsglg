@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     sermons: Sermon;
     sermon_documents: SermonDocument;
+    'word-of-the-week': WordOfTheWeek;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -81,6 +82,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     sermons: SermonsSelect<false> | SermonsSelect<true>;
     sermon_documents: SermonDocumentsSelect<false> | SermonDocumentsSelect<true>;
+    'word-of-the-week': WordOfTheWeekSelect<false> | WordOfTheWeekSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -186,6 +188,47 @@ export interface SermonDocument {
   focalY?: number | null;
 }
 /**
+ * Manage weekly inspirational words and messages displayed to website visitors.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "word-of-the-week".
+ */
+export interface WordOfTheWeek {
+  id: number;
+  /**
+   * The title of the word/message (e.g., 'God's word for the week')
+   */
+  title: string;
+  /**
+   * The main inspirational message content
+   */
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * The date this word becomes active
+   */
+  date: string;
+  /**
+   * Bible verse references (e.g., 'Psalm 29:1-11; Acts11:4-24')
+   */
+  scriptureReferences?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
@@ -207,6 +250,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'sermon_documents';
         value: number | SermonDocument;
+      } | null)
+    | ({
+        relationTo: 'word-of-the-week';
+        value: number | WordOfTheWeek;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -310,6 +357,18 @@ export interface SermonDocumentsSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "word-of-the-week_select".
+ */
+export interface WordOfTheWeekSelect<T extends boolean = true> {
+  title?: T;
+  content?: T;
+  date?: T;
+  scriptureReferences?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

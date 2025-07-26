@@ -70,6 +70,45 @@ export type SermonDocument = {
 };
 
 /**
+ * Word Of The Week
+ * Manage weekly inspirational words and messages displayed to website visitors.
+ */
+export type WordOfTheWeek = {
+    id: string;
+    /**
+     * The title of the word/message (e.g., 'God's word for the week')
+     */
+    title: string;
+    /**
+     * The main inspirational message content
+     */
+    content: {
+        root: {
+            type: string;
+            children: Array<{
+                type: string;
+                version: number;
+                [key: string]: unknown | string | number;
+            }>;
+            direction: 'ltr' | 'rtl';
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+        };
+    };
+    /**
+     * The date this word becomes active
+     */
+    date: string;
+    /**
+     * Bible verse references (e.g., 'Psalm 29:1-11; Acts11:4-24')
+     */
+    scriptureReferences?: string | null;
+    updatedAt: string;
+    createdAt: string;
+};
+
+/**
  * Payload Locked Document
  */
 export type PayloadLockedDocument = {
@@ -86,6 +125,9 @@ export type PayloadLockedDocument = {
     } | {
         relationTo: 'sermon_documents';
         value: string | SermonDocument;
+    } | {
+        relationTo: 'word-of-the-week';
+        value: string | WordOfTheWeek;
     };
     globalSlug?: string | null;
     user: {
@@ -536,6 +578,72 @@ export type SermonDocumentQueryOperationsOr = {
 };
 
 /**
+ * Word Of The Week query operations
+ */
+export type WordOfTheWeekQueryOperations = {
+    title?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        like?: string;
+        contains?: string;
+    };
+    date?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        greater_than?: string;
+        greater_than_equal?: string;
+        less_than?: string;
+        less_than_equal?: string;
+    };
+    scriptureReferences?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        like?: string;
+        contains?: string;
+    };
+    updatedAt?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        greater_than?: string;
+        greater_than_equal?: string;
+        less_than?: string;
+        less_than_equal?: string;
+    };
+    createdAt?: {
+        equals?: string;
+        not_equals?: string;
+        in?: string;
+        not_in?: string;
+        greater_than?: string;
+        greater_than_equal?: string;
+        less_than?: string;
+        less_than_equal?: string;
+    };
+};
+
+/**
+ * Word Of The Week query conjunction
+ */
+export type WordOfTheWeekQueryOperationsAnd = {
+    and: Array<WordOfTheWeekQueryOperations | WordOfTheWeekQueryOperationsAnd | WordOfTheWeekQueryOperationsOr>;
+};
+
+/**
+ * Word Of The Week query disjunction
+ */
+export type WordOfTheWeekQueryOperationsOr = {
+    or: Array<WordOfTheWeekQueryOperations | WordOfTheWeekQueryOperationsAnd | WordOfTheWeekQueryOperationsOr>;
+};
+
+/**
  * Payload Locked Document query operations
  */
 export type PayloadLockedDocumentQueryOperations = {
@@ -748,12 +856,48 @@ export type SermonDocumentRequestBody = {
 };
 
 /**
+ * WordOfTheWeek
+ * Manage weekly inspirational words and messages displayed to website visitors.
+ */
+export type WordOfTheWeekRequestBody = {
+    /**
+     * The title of the word/message (e.g., 'God's word for the week')
+     */
+    title: string;
+    /**
+     * The main inspirational message content
+     */
+    content: {
+        root: {
+            type: string;
+            children: Array<{
+                type: string;
+                version: number;
+                [key: string]: unknown | string | number;
+            }>;
+            direction: 'ltr' | 'rtl';
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+        };
+    };
+    /**
+     * The date this word becomes active
+     */
+    date: string;
+    /**
+     * Bible verse references (e.g., 'Psalm 29:1-11; Acts11:4-24')
+     */
+    scriptureReferences?: string | null;
+};
+
+/**
  * PayloadLockedDocument
  * Payload Locked Document
  */
 export type PayloadLockedDocumentRequestBody = {
     /**
-     * ID of the users/media/sermons/sermon_documents
+     * ID of the users/media/sermons/sermon_documents/word-of-the-week
      */
     document?: string;
     globalSlug?: string | null;
@@ -1422,6 +1566,165 @@ export type PatchApiSermonDocumentsByIdResponses = {
 };
 
 export type PatchApiSermonDocumentsByIdResponse = PatchApiSermonDocumentsByIdResponses[keyof PatchApiSermonDocumentsByIdResponses];
+
+export type GetApiWordOfTheWeekData = {
+    body?: never;
+    path?: never;
+    query?: {
+        page?: number;
+        limit?: number;
+        depth?: number;
+        locale?: string;
+        'fallback-locale'?: string;
+        sort?: 'title' | '-title' | 'date' | '-date' | 'scriptureReferences' | '-scriptureReferences' | 'updatedAt' | '-updatedAt' | 'createdAt' | '-createdAt';
+        where?: {
+            [key: string]: unknown;
+        } & (WordOfTheWeekQueryOperations | WordOfTheWeekQueryOperationsAnd | WordOfTheWeekQueryOperationsOr);
+    };
+    url: '/api/word-of-the-week';
+};
+
+export type GetApiWordOfTheWeekResponses = {
+    /**
+     * List of Word Of The Weeks
+     */
+    200: {
+        docs: Array<WordOfTheWeek>;
+        totalDocs: number;
+        limit: number;
+        totalPages: number;
+        page: number;
+        pagingCounter: number;
+        hasPrevPage: boolean;
+        hasNextPage: boolean;
+        prevPage: number | null;
+        nextPage: number | null;
+    };
+};
+
+export type GetApiWordOfTheWeekResponse = GetApiWordOfTheWeekResponses[keyof GetApiWordOfTheWeekResponses];
+
+export type PostApiWordOfTheWeekData = {
+    /**
+     * Word Of The Week
+     */
+    body?: WordOfTheWeekRequestBody;
+    path?: never;
+    query?: never;
+    url: '/api/word-of-the-week';
+};
+
+export type PostApiWordOfTheWeekResponses = {
+    /**
+     * Word Of The Week object
+     */
+    201: {
+        message: string;
+        doc: WordOfTheWeek & {
+            id: string;
+            createdAt: string;
+            updatedAt: string;
+        };
+    };
+};
+
+export type PostApiWordOfTheWeekResponse = PostApiWordOfTheWeekResponses[keyof PostApiWordOfTheWeekResponses];
+
+export type DeleteApiWordOfTheWeekByIdData = {
+    body?: never;
+    path: {
+        /**
+         * ID of the Word Of The Week
+         */
+        id: string;
+    };
+    query?: {
+        depth?: number;
+        locale?: string;
+        'fallback-locale'?: string;
+    };
+    url: '/api/word-of-the-week/{id}';
+};
+
+export type DeleteApiWordOfTheWeekByIdErrors = {
+    /**
+     * Word Of The Week not found
+     */
+    404: unknown;
+};
+
+export type DeleteApiWordOfTheWeekByIdResponses = {
+    /**
+     * Word Of The Week object
+     */
+    200: WordOfTheWeek;
+};
+
+export type DeleteApiWordOfTheWeekByIdResponse = DeleteApiWordOfTheWeekByIdResponses[keyof DeleteApiWordOfTheWeekByIdResponses];
+
+export type GetApiWordOfTheWeekByIdData = {
+    body?: never;
+    path: {
+        /**
+         * ID of the Word Of The Week
+         */
+        id: string;
+    };
+    query?: {
+        depth?: number;
+        locale?: string;
+        'fallback-locale'?: string;
+    };
+    url: '/api/word-of-the-week/{id}';
+};
+
+export type GetApiWordOfTheWeekByIdErrors = {
+    /**
+     * Word Of The Week not found
+     */
+    404: unknown;
+};
+
+export type GetApiWordOfTheWeekByIdResponses = {
+    /**
+     * Word Of The Week object
+     */
+    200: WordOfTheWeek;
+};
+
+export type GetApiWordOfTheWeekByIdResponse = GetApiWordOfTheWeekByIdResponses[keyof GetApiWordOfTheWeekByIdResponses];
+
+export type PatchApiWordOfTheWeekByIdData = {
+    body?: never;
+    path: {
+        /**
+         * ID of the Word Of The Week
+         */
+        id: string;
+    };
+    query?: {
+        depth?: number;
+        locale?: string;
+        'fallback-locale'?: string;
+    };
+    url: '/api/word-of-the-week/{id}';
+};
+
+export type PatchApiWordOfTheWeekByIdErrors = {
+    /**
+     * Word Of The Week not found
+     */
+    404: unknown;
+};
+
+export type PatchApiWordOfTheWeekByIdResponses = {
+    /**
+     * Word Of The Week object
+     */
+    200: WordOfTheWeek;
+};
+
+export type PatchApiWordOfTheWeekByIdResponse = PatchApiWordOfTheWeekByIdResponses[keyof PatchApiWordOfTheWeekByIdResponses];
 
 export type GetApiPayloadLockedDocumentsData = {
     body?: never;

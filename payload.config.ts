@@ -7,9 +7,7 @@ import { fileURLToPath } from "url";
 import { openapi, redoc } from "payload-oapi";
 import { s3Storage } from "@payloadcms/storage-s3";
 
-import { Users } from "@/collections/Users";
-import { Media } from "@/collections/Media";
-import { SermonDocuments, Sermons } from "@/collections/Sermons";
+import { Users, Media, Sermons, SermonDocuments, WordOfTheWeek } from "./collections";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -21,7 +19,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Sermons, SermonDocuments],
+  collections: [Users, Media, Sermons, SermonDocuments, WordOfTheWeek],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
