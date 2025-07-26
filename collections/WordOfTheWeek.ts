@@ -3,27 +3,18 @@ import type { CollectionConfig } from "payload";
 export const WordOfTheWeek: CollectionConfig = {
   slug: "word-of-the-week",
   admin: {
-    useAsTitle: "title",
+    useAsTitle: "date",
     description:
       "Manage weekly inspirational words and messages displayed to website visitors.",
-    defaultColumns: ["title", "date"],
+    defaultColumns: ["date", "content"],
   },
   access: {
     read: () => true,
   },
   fields: [
     {
-      name: "title",
-      type: "text",
-      required: true,
-      admin: {
-        description:
-          "The title of the word/message (e.g., 'God's word for the week')",
-      },
-    },
-    {
       name: "content",
-      type: "richText",
+      type: "textarea",
       required: true,
       admin: {
         description: "The main inspirational message content",
