@@ -7,10 +7,10 @@ import { fileURLToPath } from "url";
 import { openapi, redoc } from "payload-oapi";
 import { s3Storage } from "@payloadcms/storage-s3";
 
-import { Users } from "./collections/Users.ts";
-import { Media } from "./collections/Media.ts";
-import { SermonDocuments, Sermons } from "./collections/Sermons.ts";
-import { WordOfTheWeek } from "./collections/WordOfTheWeek.ts";
+import { Users } from "./collections/Users";
+import { Media } from "./collections/Media";
+import { SermonDocuments, Sermons } from "./collections/Sermons";
+import { WordOfTheWeek } from "./collections/WordOfTheWeek";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
