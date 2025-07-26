@@ -54,6 +54,19 @@ export default function TestimonialsCarousel() {
     };
   }, [api]);
 
+  // Auto-advance carousel every 5 seconds
+  useEffect(() => {
+    if (!api) return;
+
+    const autoAdvance = setInterval(() => {
+      api.scrollNext();
+    }, 5000);
+
+    return () => {
+      clearInterval(autoAdvance);
+    };
+  }, [api]);
+
   return (
     <section className="mb-6 rounded-3xl overflow-hidden relative py-8 px-4 flex justify-center">
       {/* Background image with white overlay */}

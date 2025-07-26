@@ -9,16 +9,24 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { Download } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "motion/react";
 
 interface SermonCardProps {
   title: string;
   date: Date;
   downloadLink: string;
+  index: number;
 }
 
-function SermonCard({ title, date, downloadLink }: SermonCardProps) {
+function SermonCard({ title, date, downloadLink, index }: SermonCardProps) {
   return (
-    <div className="p-0.5">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="p-0.5 flex flex-col h-full"
+    >
       <Image
         src="/sermon_thumbnail.jpg"
         alt="Sermon Image"
@@ -26,25 +34,27 @@ function SermonCard({ title, date, downloadLink }: SermonCardProps) {
         height={250}
         className="rounded-lg aspect-square object-cover mb-3"
       />
-      <h4 className="text-lg text-rccg-dark-blue font-lato font-bold mb-3">
-        {title}
-      </h4>
-      <div className="flex items-center justify-between">
-        <p className="text-base text-rccg-dark-blue font-lato">
-          {date.toLocaleDateString("en-US", {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-          })}
-        </p>
-        <div className="bg-[#FAFAFA] font-lato text-rccg-dark-blue px-4 py-2 rounded-full flex items-center">
-          <Link href={downloadLink} download className="flex items-center">
-            <Download className="mr-2 h-4" />
-            <span>Download</span>
-          </Link>
+      <div className="flex-grow">
+        <h4 className="text-lg text-rccg-dark-blue font-lato font-bold mb-3">
+          {title}
+        </h4>
+        <div className="flex items-center justify-between mt-auto">
+          <p className="text-base text-rccg-dark-blue font-lato">
+            {date.toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </p>
+          <div className="bg-[#FAFAFA] font-lato text-rccg-dark-blue px-4 py-2 rounded-full flex items-center hover:bg-rccg-yellow hover:text-white transition-colors duration-300">
+            <Link href={downloadLink} download className="flex items-center">
+              <Download className="mr-2 h-4" />
+              <span>Download</span>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -95,18 +105,13 @@ export default function SermonsGrid({ initalPage, limit }: SermonsGridProps) {
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-[1100px] mx-auto gap-6 mt-6">
-        {allSermons.map((sermon) => {
-          let dateObj = new Date();
-          if (sermon.date) {
-            const parsed = new Date(sermon.date);
-            if (!isNaN(parsed.getTime())) {
-              dateObj = parsed;
-            }
-          }
+        {allSermons.map((sermon, index) => {
+          const dateObj = new Date(sermon.date);
           const cardProps: SermonCardProps = {
             title: sermon.title,
             date: dateObj,
             downloadLink: (sermon.document as SermonDocument).url!,
+            index,
           };
           return <SermonCard key={sermon.id} {...cardProps} />;
         })}

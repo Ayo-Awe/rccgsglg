@@ -5,11 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { AR_One_Sans } from "next/font/google";
@@ -20,18 +22,26 @@ const arOneSans = AR_One_Sans({
   style: "normal",
 });
 
-const navLinks = [
+type NavLink = {
+  name: string;
+  href?: string;
+  children?: { name: string; href: string }[];
+};
+
+const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Ministries", href: "/ministries" },
+  {
+    name: "Resources",
+    children: [
+      { name: "Sermons", href: "/sermons" },
+      { name: "Publications", href: "/publications" },
+      { name: "Bible Study", href: "/bible-study" },
+      { name: "Prayer Requests", href: "/prayer-requests" },
+    ],
+  },
   { name: "House Fellowship", href: "/house-fellowship" },
-];
-
-const resourcesLinks = [
-  { name: "Sermons", href: "/sermons" },
-  { name: "Publications", href: "/publications" },
-  { name: "Bible Study", href: "/bible-study" },
-  { name: "Prayer Requests", href: "/prayer-requests" },
 ];
 
 export default function Navbar() {
@@ -56,60 +66,69 @@ export default function Navbar() {
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center space-x-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`${arOneSans.className} ${
-                pathname === link.href
-                  ? "text-rccg-yellow font-medium"
-                  : "text-rccg-dark-blue hover:text-rccg-yellow"
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
+        <NavigationMenu className="hidden lg:flex text-lg" viewport={false}>
+          <NavigationMenuList className="flex items-center space-x-2">
+            {navLinks.map((link) => (
+              <NavigationMenuItem key={link.name}>
+                {link.children ? (
+                  // Render dropdown for items with children
+                  <>
+                    {/* Hide the chevron icon */}
+                    <NavigationMenuTrigger
+                      className={`${arOneSans.className} text-base text-rccg-dark-blue hover:text-rccg-yellow p-0`}
+                    >
+                      {link.name}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="bg-white border-gray-200">
+                      <div className="w-40">
+                        {link.children.map((childLink) => (
+                          <NavigationMenuLink key={childLink.name} asChild>
+                            <Link
+                              href={childLink.href}
+                              className={`${arOneSans.className} text-rccg-dark-blue hover:text-rccg-yellow hover:bg-gray-50 transition-colors`}
+                            >
+                              {childLink.name}
+                            </Link>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+                    </NavigationMenuContent>
+                  </>
+                ) : (
+                  // Render regular link for items without children
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href={link.href!}
+                      className={`${arOneSans.className} ${
+                        pathname === link.href
+                          ? "text-rccg-yellow font-medium"
+                          : "text-rccg-dark-blue hover:text-rccg-yellow"
+                      }`}
+                    >
+                      <span className="text-base"> {link.name} </span>
+                    </Link>
+                  </NavigationMenuLink>
+                )}
+              </NavigationMenuItem>
+            ))}
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button
-                className={`${arOneSans.className} flex items-center hover:cursor-pointer gap-1 text-rccg-dark-blue`}
-              >
-                Resources
-                {/* <ChevronDown className="h-4 w-4" /> */}
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              className="w-48 bg-white border-gray-400"
-              align="start"
-            >
-              {resourcesLinks.map((link) => (
-                <DropdownMenuItem
-                  key={link.name}
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Button
                   asChild
-                  className="hover:cursor-pointer hover:text-rccg-yellow"
+                  className="bg-gradient-to-r from-rccg-yellow to-rccg-gold"
                 >
-                  <Link href={link.href} className={`${arOneSans.className}`}>
-                    {link.name}
+                  <Link
+                    href="/contact"
+                    className="text-[#fafafa] py-2.5 px-7 rounded-sm"
+                  >
+                    Contact Us
                   </Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <Button
-            asChild
-            className="bg-gradient-to-r from-rccg-yellow to-rccg-gold"
-          >
-            <Link
-              href="/contact"
-              className="text-[#fafafa] py-2.5 px-7 rounded-sm"
-            >
-              Contact Us
-            </Link>
-          </Button>
-        </nav>
+                </Button>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
 
         {/* Mobile Menu Button */}
         <Button
@@ -133,20 +152,44 @@ export default function Navbar() {
           }`}
         >
           <div className="flex flex-col space-y-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`${arOneSans.className} text-xl ${
-                  pathname === link.href
-                    ? "text-rccg-yellow font-medium"
-                    : "text-rccg-dark-blue hover:text-rccg-yellow"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.children ? (
+                // Render parent with children links for mobile
+                <div key={link.name} className="flex flex-col space-y-3">
+                  <span
+                    className={`${arOneSans.className} text-xl text-rccg-dark-blue font-medium`}
+                  >
+                    {link.name}
+                  </span>
+                  <div className="flex flex-col space-y-2 ml-4">
+                    {link.children.map((childLink) => (
+                      <Link
+                        key={childLink.name}
+                        href={childLink.href}
+                        className={`${arOneSans.className} text-lg text-rccg-dark-blue hover:text-rccg-yellow`}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {childLink.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                // Render regular link for items without children
+                <Link
+                  key={link.name}
+                  href={link.href!}
+                  className={`${arOneSans.className} text-xl ${
+                    pathname === link.href
+                      ? "text-rccg-yellow font-medium"
+                      : "text-rccg-dark-blue hover:text-rccg-yellow"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              )
+            )}
             <Button
               asChild
               className="bg-gradient-to-r text-[#fafafa] from-rccg-yellow to-rccg-gold mt-4 max-w-sm md:w-auto"

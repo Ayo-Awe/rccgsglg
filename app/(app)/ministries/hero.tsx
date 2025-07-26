@@ -1,5 +1,6 @@
 import { Anton } from "next/font/google";
 import Image from "next/image";
+import * as motion from "motion/react-client";
 
 const anton = Anton({
   weight: ["400"],
@@ -20,19 +21,27 @@ export default function Hero() {
         priority
       />
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
-        <div className="bg-white/10 px-4 py-1 rounded-full mb-4 flex items-center">
+        <motion.div 
+          className="bg-white/10 px-4 py-1 rounded-full mb-4 flex items-center"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <span
             className={`text-sm md:text-2xl font-thin mr-3 ${anton.className}`}
           >
             ⛪
           </span>
           <span className="text-sm uppercase"> Ministries</span>
-        </div>
-        <h1
+        </motion.div>
+        <motion.h1
           className={`text-4xl md:text-5xl font-bold ${anton.className} tracking-wide`}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
           Our Ministries
-        </h1>
+        </motion.h1>
       </div>
     </section>
   );
