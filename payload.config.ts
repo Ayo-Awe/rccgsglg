@@ -31,6 +31,8 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || "",
     },
+    migrationDir: "migrations",
+    push: false,
   }),
   plugins: [
     openapi({

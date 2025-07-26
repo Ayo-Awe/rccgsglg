@@ -102,6 +102,27 @@ export default function SermonsGrid({ initalPage, limit }: SermonsGridProps) {
     return <p>Failed to load sermons.</p>;
   }
 
+  if (allSermons.length === 0) {
+    return (
+      <motion.div
+        className="flex flex-col items-center justify-center py-12 mt-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="bg-[#FAFAFA] p-6 rounded-full mb-6">
+          <span className="text-4xl">📒</span>
+        </div>
+        <h3 className="text-2xl font-anton text-rccg-dark-blue mb-2">
+          No Sermons Available
+        </h3>
+        <p className="text-center text-rccg-dark-blue/70 font-lato max-w-md">
+          Check back soon for new sermons and spiritual teachings.
+        </p>
+      </motion.div>
+    );
+  }
+
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-[1100px] mx-auto gap-6 mt-6">

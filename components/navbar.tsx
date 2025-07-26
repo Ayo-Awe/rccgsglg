@@ -73,9 +73,8 @@ export default function Navbar() {
                 {link.children ? (
                   // Render dropdown for items with children
                   <>
-                    {/* Hide the chevron icon */}
                     <NavigationMenuTrigger
-                      className={`${arOneSans.className} text-base text-rccg-dark-blue hover:text-rccg-yellow p-0`}
+                      className={`${arOneSans.className} text-base font-normal text-rccg-dark-blue hover:text-rccg-yellow p-0`}
                     >
                       {link.name}
                     </NavigationMenuTrigger>
@@ -85,7 +84,7 @@ export default function Navbar() {
                           <NavigationMenuLink key={childLink.name} asChild>
                             <Link
                               href={childLink.href}
-                              className={`${arOneSans.className} text-rccg-dark-blue hover:text-rccg-yellow hover:bg-gray-50 transition-colors`}
+                              className={`${arOneSans.className} text-base text-rccg-dark-blue hover:text-rccg-yellow hover:bg-gray-50 transition-colors`}
                             >
                               {childLink.name}
                             </Link>

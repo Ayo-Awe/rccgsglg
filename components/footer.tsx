@@ -63,6 +63,38 @@ export default function Footer() {
           </ul>
         </div>
 
+        {/*  --------- Resources --------- */}
+        <div className="sm:mx-auto ">
+          <h3 className="text-lg font-bold mb-5">Resources</h3>
+          <ul className="space-y-5">
+            <li>
+              <Link href="/programs-events" className="hover:text-white">
+                Programs & Events
+              </Link>
+            </li>
+            <li>
+              <Link href="/volunteer" className="hover:text-white">
+                Volunteer
+              </Link>
+            </li>
+            <li>
+              <Link href="/events-calendar" className="hover:text-white">
+                Events Calendar
+              </Link>
+            </li>
+            <li>
+              <Link href="/prayer-requests" className="hover:text-white">
+                Prayer Requests
+              </Link>
+            </li>
+            <li>
+              <Link href="/membership-form" className="hover:text-white">
+                Membership Form
+              </Link>
+            </li>
+          </ul>
+        </div>
+
         {/*  --------- Contact --------- */}
         <div className="max-w-[322px]">
           <h3 className="text-lg font-semibold mb-4">Contact</h3>
