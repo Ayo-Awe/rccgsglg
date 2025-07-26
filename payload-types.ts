@@ -196,27 +196,9 @@ export interface SermonDocument {
 export interface WordOfTheWeek {
   id: number;
   /**
-   * The title of the word/message (e.g., 'God's word for the week')
-   */
-  title: string;
-  /**
    * The main inspirational message content
    */
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
+  content: string;
   /**
    * The date this word becomes active
    */
@@ -363,7 +345,6 @@ export interface SermonDocumentsSelect<T extends boolean = true> {
  * via the `definition` "word-of-the-week_select".
  */
 export interface WordOfTheWeekSelect<T extends boolean = true> {
-  title?: T;
   content?: T;
   date?: T;
   scriptureReferences?: T;
