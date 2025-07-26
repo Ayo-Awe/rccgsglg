@@ -7,6 +7,9 @@ export const Sermons: CollectionConfig = {
     description:
       "A collection of sermons containing titles, documents, and dates. This collection is designed to organize and display sermon details.",
   },
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: "title",
