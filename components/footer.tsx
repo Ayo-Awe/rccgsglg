@@ -1,21 +1,18 @@
 import Link from "next/link";
-import Image from "next/image";
+import {
+  RccgLogo,
+  Facebook,
+  Instagram,
+  FeYoutube,
+  AkarIconsXFill,
+  Phone,
+  Location,
+} from "@/components/icons";
 
-const Facebook = () => (
-  <Image src="/facebook.svg" alt="Facebook" width={16} height={16} />
-);
-
-const Instagram = () => (
-  <Image src="/instagram.svg" alt="Instagram" width={16} height={16} />
-);
-
-const Youtube = () => (
-  <Image src="/fe_youtube.svg" alt="Youtube" width={16} height={16} />
-);
-
-const Twitter = () => (
-  <Image src="/akar-icons_x-fill.svg" alt="Twitter" width={16} height={16} />
-);
+const FacebookIcon = () => <Facebook className="w-4 h-4" />;
+const InstagramIcon = () => <Instagram className="w-4 h-4" />;
+const YoutubeIcon = () => <FeYoutube className="w-4 h-4" />;
+const TwitterIcon = () => <AkarIconsXFill className="w-4 h-4" />;
 
 export default function Footer() {
   return (
@@ -24,13 +21,7 @@ export default function Footer() {
         {/*  --------- Logo --------- */}
         <div>
           <Link href="/" className="flex items-center mb-8">
-            <Image
-              src="/rccg-logo.svg"
-              alt="Church Logo"
-              width={60}
-              height={60}
-              className="rounded-full"
-            />
+            <RccgLogo className="rounded-full w-15 h-15" />
           </Link>
           <p className="text-near-white mb-6 text-justify max-w-[474px]">
             Shekinah Glory of the living God is a branch of Redeemed Christian
@@ -100,21 +91,12 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">Contact</h3>
           <ul className="space-y-4">
             <ContatItem
-              icon={
-                <Image src="/phone.svg" alt="Phone" width={16} height={36} />
-              }
+              icon={<Phone className="w-4 h-9" />}
               subtext="+44 20 3752 4087"
               title="Call Us"
             />
             <ContatItem
-              icon={
-                <Image
-                  src="/location.svg"
-                  alt="Map Pin"
-                  width={16}
-                  height={32}
-                />
-              }
+              icon={<Location className="w-10 h-10" />}
               title="Visit Us"
               subtext="L01 -LO2 Studio Hall, Pimlico Academy Lupus Street, London. SW1V 3AT, London, United Kingdom"
             />
@@ -129,16 +111,16 @@ export default function Footer() {
         <p className="text-grey text-sm">All Rights Reserved 2010 RCCGSLG</p>
         <div className="flex space-x-4">
           <Link href="#">
-            <Facebook />
+            <FacebookIcon />
           </Link>
           <Link href="#">
-            <Instagram />
+            <InstagramIcon />
           </Link>
           <Link href="#">
-            <Youtube />
+            <YoutubeIcon />
           </Link>
           <Link href="#">
-            <Twitter />
+            <TwitterIcon />
           </Link>
         </div>
       </div>

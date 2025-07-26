@@ -1,10 +1,8 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import { ArrowUpRight, PartnerWithUs } from "@/components/icons";
 
-const ArrowRightIcon = () => (
-  <Image src="/arrow-up-right.svg" alt="Arrow Right" width={24} height={24} />
-);
+const ArrowRightIcon = () => <ArrowUpRight className="w-6 h-6" />;
 
 export default function PartnerSection() {
   return (
@@ -25,13 +23,7 @@ export default function PartnerSection() {
             </Link>
           </Button>
         </div>
-        <Image
-          src="/partner-with-us.svg"
-          alt="Partner Section Image"
-          width={650}
-          height={650}
-          className="absolute bottom-0 right-0 h-[110px] w-[219px] sm:h-[220px] sm:w-[438px] lg:h-auto lg:w-[650px]"
-        />
+        <PartnerWithUs className="absolute bottom-0 right-0 h-[110px] w-[219px] sm:h-[220px] sm:w-[438px] lg:h-auto lg:w-[650px]" />
       </div>
     </section>
   );

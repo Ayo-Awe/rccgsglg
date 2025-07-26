@@ -24,7 +24,7 @@ const heroSlides = [
     subtitle: "SHEKINAH GLORY OF THE LIVING GOD",
     description:
       "All glory to God in thy highest, amen; for His mercies endureth forever.",
-    image: "/home_hero.png",
+    image: "/heroes/home_hero.png",
     buttonText: "Watch Online",
     buttonLink: "/watch",
   },

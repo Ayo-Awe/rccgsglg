@@ -1,6 +1,6 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Poppins, Roboto } from "next/font/google";
-import Image from "next/image";
+import { ArrowUpRight } from "@/components/icons";
 import Link from "next/link";
 import * as motion from "motion/react-client";
 
@@ -10,7 +10,7 @@ const poppins = Poppins({ weight: ["400"], subsets: ["latin"] });
 interface MinistryCardProps {
   title: string;
   description: string;
-  icon: string;
+  icon: React.ReactElement;
   slug?: string;
 }
 
@@ -41,14 +41,9 @@ export default function MinistryCard({
         <motion.div
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ duration: 0.3 }}
+          className="absolute top-0 right-0 ml-auto bg-center z-0 h-49.5 w-49.5"
         >
-          <Image
-            src={icon}
-            height={198}
-            width={198}
-            alt={`${title} icon`}
-            className="absolute top-0 right-0 ml-auto bg-center z-0"
-          />
+          {icon}
         </motion.div>
 
         <CardContent className="pt-2 px-4 z-5">
@@ -71,12 +66,7 @@ export default function MinistryCard({
               whileHover={{ scale: 1.2, backgroundColor: "#d4af37" }}
               transition={{ duration: 0.2 }}
             >
-              <Image
-                src="/arrow-up-right.svg"
-                alt="Arrow Right"
-                width={24}
-                height={24}
-              />
+              <ArrowUpRight className="w-6 h-6" />
             </motion.div>
           )}
         </CardFooter>

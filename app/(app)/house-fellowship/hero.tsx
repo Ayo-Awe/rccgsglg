@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HfBible, HfPrayer } from "@/components/icons";
 
 export default function HouseFellowshipHero() {
   return (
@@ -9,25 +10,13 @@ export default function HouseFellowshipHero() {
         </h1>
         <div className="text-[#94A3B8] font-medium font-roboto text-sm md:text-lg">
           <div>
-            <Image
-              src={"/hf_bible.svg"}
-              height={24}
-              width={24}
-              alt="bible icon"
-              className="inline mr-2"
-            />
+            <HfBible className="inline mr-2 w-6 h-6" />
             <span>Luke 24:14-27, 30-32</span>
             <span className="mx-2 inline-block">•</span>
             <span>Acts 2:42- 47</span>
           </div>
           <div>
-            <Image
-              src={"/hf_prayer.svg"}
-              height={24}
-              width={24}
-              alt="bible icon"
-              className="inline mr-2"
-            />
+            <HfPrayer className="inline mr-2 w-6 h-6" />
             <span>Rom 16:1 — 16,17 (prayers), 18 — 20,21-24,25- 27</span>
             <span className="mx-2 inline-block">•</span>
             <span>Celebration of the glory of God (v.25-27)</span>
@@ -37,7 +26,7 @@ export default function HouseFellowshipHero() {
 
       <div className="relative h-[434px] w-full mt-8">
         <Image
-          src="/hf_hero.jpg"
+          src="/heroes/hf_hero.jpg"
           alt="People worshipping at sunset"
           fill
           className="object-cover rounded-[18px]"

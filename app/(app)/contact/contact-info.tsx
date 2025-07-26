@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
+import { ContactPhone, ContactMap } from "@/components/icons";
 
 export default function ContactInfo() {
   return (
@@ -10,12 +10,7 @@ export default function ContactInfo() {
 
       <Card className="bg-[#F6F6F6] border-none shadow-none py-2 rounded-lg">
         <CardContent className="flex items-center space-x-6 px-3.5">
-          <Image
-            src={"/contact_phone.svg"}
-            height={40}
-            width={40}
-            alt="phone"
-          />
+          <ContactPhone className="w-10 h-10" />
           <div>
             <h3 className="text-rccg-dark-blue font-roboto font-bold text-sm md:text-balance">
               Phone
@@ -29,7 +24,7 @@ export default function ContactInfo() {
 
       <Card className="bg-[#F6F6F6] border-none py-2 rounded-lg shadow-none text-sm md:text-base">
         <CardContent className="flex items-center space-x-6 shadow-none px-3.5">
-          <Image src={"/contact_map.svg"} height={40} width={40} alt="phone" />
+          <ContactMap className="w-13 h-13" />
           <div>
             <h3 className="text-rccg-dark-blue font-roboto font-bold">
               Address

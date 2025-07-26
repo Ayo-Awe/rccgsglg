@@ -6,7 +6,7 @@ export default function AboutHero() {
     <section className="relative h-[300px] bg-[#1a1a2e] text-white rounded-3xl overflow-hidden">
       <div className="absolute inset-0 bg-[#15151BB2] z-10 rounded-3xl"></div>
       <Image
-        src="/aboutus_hero.jpg"
+        src="/heroes/aboutus_hero.jpg"
         alt="About Us Background"
         fill
         className="object-cover"

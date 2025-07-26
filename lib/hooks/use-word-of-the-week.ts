@@ -35,7 +35,7 @@ export function useWordOfTheWeek() {
 
         // Check if user has seen this word
         const lastSeenId = localStorage.getItem(STORAGE_KEY);
-        if (lastSeenId !== latestWord.id) {
+        if (String(lastSeenId) !== String(latestWord.id)) {
           setShouldShowModal(true);
         }
       }

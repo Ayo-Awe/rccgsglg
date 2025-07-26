@@ -82,7 +82,7 @@ export default function WorkforceSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <Image
-            src="/home_workforce.png"
+            src="/backgrounds/home_workforce.png"
             alt="Church Volunteers"
             width={640}
             height={600}

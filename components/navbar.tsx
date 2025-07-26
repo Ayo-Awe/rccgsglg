@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { RccgLogo } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -57,13 +57,7 @@ export default function Navbar() {
     <header className="bg-white py-2 mb-4 sticky top-0 z-50">
       <div className="mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center z-50">
-          <Image
-            src="/rccg-logo.svg"
-            alt="Church Logo"
-            width={60}
-            height={60}
-            className="rounded-full h-10 w-10 md:h-15 md:w-15"
-          />
+          <RccgLogo className="rounded-full h-10 w-10 md:h-15 md:w-15" />
         </Link>
 
         <NavigationMenu className="hidden lg:flex text-lg" viewport={false}>

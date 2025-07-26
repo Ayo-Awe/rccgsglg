@@ -28,7 +28,7 @@ function SermonCard({ title, date, downloadLink, index }: SermonCardProps) {
       className="p-0.5 flex flex-col h-full"
     >
       <Image
-        src="/sermon_thumbnail.jpg"
+        src="/sermons/sermon_thumbnail.jpg"
         alt="Sermon Image"
         width={250}
         height={250}

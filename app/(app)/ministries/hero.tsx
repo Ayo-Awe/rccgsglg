@@ -14,7 +14,7 @@ export default function Hero() {
     >
       <div className="absolute inset-0 bg-[#15151BB2] z-10 rounded-3xl"></div>
       <Image
-        src="/ministries_hero.jpg"
+        src="/heroes/ministries_hero.jpg"
         alt="About Us Background"
         fill
         className="object-cover"

@@ -76,26 +76,9 @@ export type SermonDocument = {
 export type WordOfTheWeek = {
     id: string;
     /**
-     * The title of the word/message (e.g., 'God's word for the week')
-     */
-    title: string;
-    /**
      * The main inspirational message content
      */
-    content: {
-        root: {
-            type: string;
-            children: Array<{
-                type: string;
-                version: number;
-                [key: string]: unknown | string | number;
-            }>;
-            direction: 'ltr' | 'rtl';
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-        };
-    };
+    content: string;
     /**
      * The date this word becomes active
      */
@@ -581,14 +564,6 @@ export type SermonDocumentQueryOperationsOr = {
  * Word Of The Week query operations
  */
 export type WordOfTheWeekQueryOperations = {
-    title?: {
-        equals?: string;
-        not_equals?: string;
-        in?: string;
-        not_in?: string;
-        like?: string;
-        contains?: string;
-    };
     date?: {
         equals?: string;
         not_equals?: string;
@@ -861,26 +836,9 @@ export type SermonDocumentRequestBody = {
  */
 export type WordOfTheWeekRequestBody = {
     /**
-     * The title of the word/message (e.g., 'God's word for the week')
-     */
-    title: string;
-    /**
      * The main inspirational message content
      */
-    content: {
-        root: {
-            type: string;
-            children: Array<{
-                type: string;
-                version: number;
-                [key: string]: unknown | string | number;
-            }>;
-            direction: 'ltr' | 'rtl';
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-        };
-    };
+    content: string;
     /**
      * The date this word becomes active
      */
@@ -1576,7 +1534,7 @@ export type GetApiWordOfTheWeekData = {
         depth?: number;
         locale?: string;
         'fallback-locale'?: string;
-        sort?: 'title' | '-title' | 'date' | '-date' | 'scriptureReferences' | '-scriptureReferences' | 'updatedAt' | '-updatedAt' | 'createdAt' | '-createdAt';
+        sort?: 'date' | '-date' | 'scriptureReferences' | '-scriptureReferences' | 'updatedAt' | '-updatedAt' | 'createdAt' | '-createdAt';
         where?: {
             [key: string]: unknown;
         } & (WordOfTheWeekQueryOperations | WordOfTheWeekQueryOperationsAnd | WordOfTheWeekQueryOperationsOr);

@@ -7,7 +7,7 @@ export default function NotFound() {
     <main>
       <div className="mx-auto max-w-md my-20">
         <Image
-          src={"/cuate.png"}
+          src={"/backgrounds/cuate.png"}
           height={350}
           width={350}
           alt="not found"

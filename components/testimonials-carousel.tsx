@@ -72,7 +72,7 @@ export default function TestimonialsCarousel() {
       {/* Background image with white overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/testimony_bg.jpeg"
+          src="/backgrounds/testimony_bg.jpeg"
           alt="Worship background"
           fill
           className="object-cover"

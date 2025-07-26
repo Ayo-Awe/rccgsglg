@@ -1,6 +1,7 @@
 import { Anton } from "next/font/google";
 import MinistryCard from "./ministry-card";
 import Image from "next/image";
+import { MinChoir, MinEvangelism, MinIntersessory, MinProtocol, MinWelfare, MinTechnical, MinTraining, MinChildren, MinMultimedia, MinCounselling, MinSundaySchool, MinSecurity, MinSanitation, MinDrama, MinMaintenance } from "@/components/icons";
 
 const anton = Anton({
   weight: ["400"],
@@ -13,21 +14,21 @@ const ministries = [
     title: "Choir",
     description:
       "Worship is an essential part of the Christian Faith and one of the ways in which we love to worship God is through music.",
-    icon: "/min_choir.svg",
+    icon: <MinChoir className="w-full h-full" />,
     slug: "choir",
   },
   {
     title: "Evangelism/ Follow-Up",
     description:
       "Although evangelism is mandatory for all believers, there is a team that is devoted to bringing the Gospel to the local community every Saturday.",
-    icon: "/min_evangelism.svg",
+    icon: <MinEvangelism className="w-full h-full" />,
     slug: "evangelism",
   },
   {
     title: "Intersessory",
     description:
       "This ministry focuses on supporting the Pastorate in prayer, interceding for the church and its members. The intercessors pray concerning major.",
-    icon: "/min_intersessory.svg",
+    icon: <MinIntersessory className="w-full h-full" />,
     slug: "intercessory",
   },
 
@@ -35,77 +36,77 @@ const ministries = [
     title: "Usher & Protocol",
     description:
       'For even the Son of Man did not come to be served, but to serve, and to give his life as a ransom for many." Mark 10:42-45.',
-    icon: "/min_protocol.svg",
+    icon: <MinProtocol className="w-full h-full" />,
     slug: "protocol",
   },
   {
     title: "Welfare & Hospitality",
     description:
       "The Bible teaches us about caring for widows, the elderly and our brothers and sisters in general. It is the responsibility of all God's children.",
-    icon: "/min_welfare.svg",
+    icon: <MinWelfare className="w-full h-full" />,
     slug: "welfare",
   },
   {
     title: "Technical/Engineering",
     description:
       "The Technical team are responsible for quality of sound and production of concepts derived from live recordings. They are accountable for the.",
-    icon: "/min_technical.svg",
+    icon: <MinTechnical className="w-full h-full" />,
     slug: "technical",
   },
   {
     title: "Teaching/Training",
     description:
       "The Bible admonishes us to be diligent to present ourselves approved to God as a workman who does not need to be ashamed, handling.",
-    icon: "/min_training.svg",
+    icon: <MinTraining className="w-full h-full" />,
   },
   {
     title: "Children & Youth",
     description:
       "This ministry aims to prepare our youth as they venture into life that requires more understanding of the world we live in and prepare their mind.",
-    icon: "/min_children.svg",
+    icon: <MinChildren className="w-full h-full" />,
   },
   {
     title: "Multimedia",
     description:
       "Welcome to the RCCG SGLG Multimedia Department where our mission is 'Enhancing Your Worship Experience'.",
-    icon: "/min_multimedia.svg",
+    icon: <MinMultimedia className="w-full h-full" />,
   },
 
   {
     title: "Counselling/Visitation",
     description:
       "The Counselling department of RCCG SGLG offers counseling and support to anyone dealing with difficult situations or circumstances.",
-    icon: "/min_counselling.svg",
+    icon: <MinCounselling className="w-full h-full" />,
   },
   {
     title: "Sunday School",
     description:
       "This is the primary disciple-making ministry within our assembly. It helps persons to grow in the knowledge and grace of God through regular and balanced studies of the scriptures.",
-    icon: "/min_sunday_school.svg",
+    icon: <MinSundaySchool className="w-full h-full" />,
   },
   {
     title: "Security",
     description:
       "This team ensures the safety of every individuals around the church premises. They also look to keep away the intruders.",
-    icon: "/min_security.svg",
+    icon: <MinSecurity className="w-full h-full" />,
   },
   {
     title: "Sanitation/Decoration",
     description:
       "This dept. is responsible for the physical structure of the building, ensuring that the building is well looked after and ready for use at all times.",
-    icon: "/min_sanitation.svg",
+    icon: <MinSanitation className="w-full h-full" />,
   },
   {
     title: "Drama/Humour",
     description:
       "The Drama ministry aims to promote the Gospel through various forms of drama, seeking to inspire, instruct and encourage while entertaining its audience.",
-    icon: "/min_drama.svg",
+    icon: <MinDrama className="w-full h-full" />,
   },
   {
     title: "Building/Maintenance",
     description:
       "This department has a mandate to ensure that the house of God is always available for worship. They have an ultimate vision of erecting a permanent building in the future.",
-    icon: "/min_maintenance.svg",
+    icon: <MinMaintenance className="w-full h-full" />,
   },
 ];
 
@@ -128,14 +129,14 @@ export default function MinistriesGrid() {
       </h2>
 
       <Image
-        src="/ellipse.png"
+        src="/backgrounds/ellipse.png"
         height={1336}
         width={1586}
         alt="bg ellipse"
         className="invisible md:visible absolute left-0 bottom-0 z-0"
       />
       <Image
-        src="/ellipse_long.png"
+        src="/backgrounds/ellipse_long.png"
         height={3994}
         width={684}
         alt="bg ellipse"

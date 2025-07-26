@@ -19,7 +19,7 @@ export default function PastorMessage() {
           transition={{ duration: 0.8 }}
         >
           <Image
-            src="/pastor.png"
+            src="/backgrounds/pastor.png"
             alt="Pastor and Wife"
             width={630}
             height={500}

@@ -1,5 +1,6 @@
 import Hero from "../hero";
 import Image from "next/image";
+import { Back } from "@/components/icons";
 import Link from "next/link";
 
 interface Ministry {
@@ -85,13 +86,7 @@ export default async function MinistryDetailsPage({ params }: Props) {
         className={`rounded-3xl p-8 my-10 border`}
       >
         <Link href="/ministries">
-          <Image
-            src="/back.svg"
-            height={44}
-            width={121}
-            alt="go back"
-            className="mb-6"
-          />
+          <Back className="mb-6 h-11 w-30.25" />
         </Link>
         <h2 className="font-anton text-5xl text-rccg-dark-blue mb-6">
           {ministry.title}

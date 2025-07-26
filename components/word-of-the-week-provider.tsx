@@ -5,7 +5,8 @@ import { WordOfTheWeekModal } from "./word-of-the-week-modal";
 import { WordOfTheWeekButton } from "./word-of-the-week-button";
 
 export function WordOfTheWeekProvider() {
-  const { currentWord, shouldShowModal, isLoading, openModal, closeModal } = useWordOfTheWeek();
+  const { currentWord, shouldShowModal, isLoading, openModal, closeModal } =
+    useWordOfTheWeek();
 
   if (isLoading) {
     return null;
@@ -19,11 +20,9 @@ export function WordOfTheWeekProvider() {
         onClose={closeModal}
         word={currentWord}
       />
-      
+
       {/* Floating button always visible */}
-      {currentWord && (
-        <WordOfTheWeekButton onClick={openModal} />
-      )}
+      {currentWord && <WordOfTheWeekButton onClick={openModal} />}
     </>
   );
 }

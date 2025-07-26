@@ -1,6 +1,7 @@
 import PartnerSection from "@/components/partner-section";
 import { Anton } from "next/font/google";
 import Image from "next/image";
+import { RccgLogo } from "@/components/icons";
 import CopyToClipboard from "@/components/copy-to-clipboard";
 import * as motion from "motion/react-client";
 
@@ -16,7 +17,7 @@ function Hero() {
     >
       <div className="absolute inset-0 bg-[#15151BB2] z-10 rounded-3xl"></div>
       <Image
-        src="/give_hero.jpg"
+        src="/heroes/give_hero.jpg"
         alt="About Us Background"
         fill
         className="object-cover"
@@ -66,7 +67,7 @@ function AccountDetailsSection() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <Image src="/rccg-logo.svg" height={42} width={42} alt="rccg logo" />
+        <RccgLogo className="w-10.5 h-10.5" />
         <p className="font-lato text-2xl font-bold">RCCG SGLG</p>
       </motion.div>
       <motion.div 
