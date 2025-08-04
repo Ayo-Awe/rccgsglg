@@ -13,7 +13,7 @@ const anton = Anton({
 function Hero() {
   return (
     <section
-      className={`relative h-[422px] bg-[#1a1a2e] text-white rounded-3xl overflow-hidden`}
+      className={`relative h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] bg-[#1a1a2e] text-white rounded-3xl overflow-hidden`}
     >
       <div className="absolute inset-0 bg-[#15151BB2] z-10 rounded-3xl"></div>
       <Image
@@ -25,25 +25,25 @@ function Hero() {
       />
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
         <motion.div 
-          className="bg-white/10 px-4 py-1 rounded-full mb-4 flex items-center"
+          className="bg-white/10 px-3 sm:px-4 py-1 rounded-full mb-3 sm:mb-4 flex items-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <span
-            className={`text-sm md:text-2xl font-thin mr-3 ${anton.className}`}
+            className={`text-lg sm:text-xl md:text-2xl font-thin mr-2 sm:mr-3 ${anton.className}`}
           >
             💵
           </span>
-          <span className="text-sm uppercase"> Give</span>
+          <span className="text-xs sm:text-sm uppercase"> Give</span>
         </motion.div>
         <motion.h1
-          className={`text-4xl md:text-[58px] font-bold ${anton.className} tracking-wide leading-normal`}
+          className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${anton.className} tracking-wide leading-tight`}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <span className="text-[#DEC360]">Donate</span> To Share <br /> His{" "}
+          <span className="text-[#DEC360]">Donate</span> To Share <br className="hidden sm:block" /> His{" "}
           <span className="text-[#DEC360]">Love</span>
         </motion.h1>
       </div>

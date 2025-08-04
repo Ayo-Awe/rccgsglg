@@ -12,7 +12,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { AR_One_Sans } from "next/font/google";
 
@@ -36,6 +36,7 @@ const navLinks: NavLink[] = [
     name: "Resources",
     children: [
       { name: "Sermons", href: "/sermons" },
+      { name: "Gallery", href: "/gallery" },
       { name: "Publications", href: "/publications" },
       { name: "Bible Study", href: "/bible-study" },
       { name: "Prayer Requests", href: "/prayer-requests" },
@@ -46,12 +47,18 @@ const navLinks: NavLink[] = [
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
   const pathname = usePathname();
 
   // Close menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
+    setMobileDropdownOpen(null);
   }, [pathname]);
+
+  const toggleMobileDropdown = (linkName: string) => {
+    setMobileDropdownOpen(mobileDropdownOpen === linkName ? null : linkName);
+  };
 
   return (
     <header className="bg-white py-2 mb-4 sticky top-0 z-50">
@@ -144,27 +151,41 @@ export default function Navbar() {
             isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
-          <div className="flex flex-col space-y-6">
+          <div className="flex flex-col space-y-4">
             {navLinks.map((link) =>
               link.children ? (
-                // Render parent with children links for mobile
-                <div key={link.name} className="flex flex-col space-y-3">
-                  <span
-                    className={`${arOneSans.className} text-xl text-rccg-dark-blue font-medium`}
+                // Render parent with dropdown for mobile
+                <div key={link.name} className="flex flex-col">
+                  <button
+                    onClick={() => toggleMobileDropdown(link.name)}
+                    className={`${arOneSans.className} text-xl text-rccg-dark-blue font-medium flex items-center justify-between hover:text-rccg-yellow transition-colors`}
                   >
                     {link.name}
-                  </span>
-                  <div className="flex flex-col space-y-2 ml-4">
-                    {link.children.map((childLink) => (
-                      <Link
-                        key={childLink.name}
-                        href={childLink.href}
-                        className={`${arOneSans.className} text-lg text-rccg-dark-blue hover:text-rccg-yellow`}
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {childLink.name}
-                      </Link>
-                    ))}
+                    {mobileDropdownOpen === link.name ? (
+                      <ChevronUp className="h-5 w-5" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5" />
+                    )}
+                  </button>
+                  <div 
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      mobileDropdownOpen === link.name 
+                        ? "max-h-96 opacity-100 mt-3" 
+                        : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div className="flex flex-col space-y-2 ml-4 border-l-2 border-gray-200 pl-4">
+                      {link.children.map((childLink) => (
+                        <Link
+                          key={childLink.name}
+                          href={childLink.href}
+                          className={`${arOneSans.className} text-lg text-rccg-dark-blue hover:text-rccg-yellow transition-colors`}
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {childLink.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ) : (
@@ -176,7 +197,7 @@ export default function Navbar() {
                     pathname === link.href
                       ? "text-rccg-yellow font-medium"
                       : "text-rccg-dark-blue hover:text-rccg-yellow"
-                  }`}
+                  } transition-colors`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}

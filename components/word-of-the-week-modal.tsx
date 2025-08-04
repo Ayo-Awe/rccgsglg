@@ -24,7 +24,7 @@ export function WordOfTheWeekModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md bg-white rounded-xl p-4">
+      <DialogContent className="bg-white rounded-xl p-4 sm:max-w-md">
         <DialogHeader>
           <div className="flex items-end gap-3">
             <RccgLogo className="w-9.5 h-9.5" />
