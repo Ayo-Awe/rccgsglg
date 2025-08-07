@@ -37,8 +37,6 @@ const navLinks: NavLink[] = [
     children: [
       { name: "Sermons", href: "/sermons" },
       { name: "Gallery", href: "/gallery" },
-      { name: "Publications", href: "/publications" },
-      { name: "Bible Study", href: "/bible-study" },
       { name: "Prayer Requests", href: "/prayer-requests" },
     ],
   },

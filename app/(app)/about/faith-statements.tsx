@@ -4,6 +4,7 @@ import {
   CoreValueAccordion,
   CoreValueProps,
 } from "@/components/core-value-accordion";
+import * as motion from "motion/react-client";
 
 const anton = Anton({
   weight: "400",
@@ -78,66 +79,78 @@ const coreValues: CoreValueProps[] = [
     content:
       "We receive direction and motivation from God and His word and believe that with Him on our side we can achieve what otherwise seems impossible.",
     title: "Faith",
-    icon: "/cross_icon.svg",
   },
   {
     content:
       "We are dedicated to the mission and vision, giving our time, energy, and resources to see it fulfilled.",
     title: "Commitment",
-    icon: "/cross_icon.svg",
   },
   {
     content:
       "We strive to live set apart, honoring God in our actions, thoughts, and lifestyle.",
     title: "Holiness",
-    icon: "/cross_icon.svg",
   },
   {
     content:
       "We value honesty and consistency in our words and actions, upholding truth at all times.",
     title: "Integrity",
-    icon: "/cross_icon.svg",
   },
   {
     content:
       "We pursue the highest standards in all that we do, giving our best and inspiring others to do the same.",
     title: "Excellence",
-    icon: "/cross_icon.svg",
   },
   {
     content:
       "We practice self-control and consistency to stay focused on what matters most.",
     title: "Discipline",
-    icon: "/cross_icon.svg",
   },
   {
     content:
       "We believe in the value of every individual and are committed to serving and uplifting others.",
     title: "People",
-    icon: "/cross_icon.svg",
   },
 ];
 
 function FaithStatements() {
   return (
     <>
-      <h2
+      <motion.h2
         className={`text-[32px] md:text-[40px] font-bold mb-3 ${anton.className}`}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
       >
         Faith
         <br />
         Statements
-      </h2>
-      <div className="grid col-span-2 gap-2.5 bg-[#FAFAFA0A] p-2.5 rounded-sm">
+      </motion.h2>
+      <motion.div 
+        className="grid col-span-2 gap-2.5 bg-[#FAFAFA0A] p-2.5 rounded-sm"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
         {faithStatements.map((statement, index) => (
-          <div
+          <motion.div
             key={index}
-            className="p-2.5 bg-[#FAFAFA0D] rounded-lg text-sm  md:text-base"
+            className="p-2.5 bg-[#FAFAFA0D] rounded-lg text-sm md:text-base"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ 
+              duration: 0.4, 
+              delay: 0.4 + (index * 0.1),
+              ease: "easeOut" 
+            }}
+            whileHover={{ 
+              scale: 1.02,
+              backgroundColor: "rgba(250, 250, 250, 0.1)"
+            }}
           >
             {statement.title}
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </>
   );
 }
@@ -145,38 +158,72 @@ function FaithStatements() {
 function MissionAndVision() {
   return (
     <>
-      <div className="col-span-3 mb-5">
-        <h2
+      <motion.div 
+        className="col-span-3 mb-5"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <motion.h2
           className={`text-[32px] md:text-[40px] font-bold mb-3 ${anton.className}`}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
         >
           Our Vision/
           <br />
           Mission
-        </h2>
-        <p className="text-sm md:text-lg text-justify max-w-[25rem]">
+        </motion.h2>
+        <motion.p 
+          className="text-sm md:text-lg text-justify max-w-[25rem]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           As received by the General Overseer (G.O.), Pastor E. A. Adeboye, and
           communicated to the Headquarters leaders, our vision and mission
           statement shall remain intact, with a qualifying addendum in view of
           the peculiarity of the demography in the North American region.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
-      <div className="col-span-4 ">
+      <motion.div 
+        className="col-span-4"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
         <div className="grid gap-2.5 bg-[#FAFAFA0A] p-2.5 rounded-sm">
           {missionVision.map((statement, index) => (
-            <div
+            <motion.div
               key={index}
               className="p-2.5 bg-[#FAFAFA0D] rounded-lg text-sm md:text-base"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ 
+                duration: 0.4, 
+                delay: 0.5 + (index * 0.1),
+                ease: "easeOut" 
+              }}
+              whileHover={{ 
+                scale: 1.02,
+                backgroundColor: "rgba(250, 250, 250, 0.1)"
+              }}
             >
               {statement.title}
-            </div>
+            </motion.div>
           ))}
         </div>
-        <p className="px-2.5 py-6 max-w-2xl text-sm md:text-base">
+        <motion.p 
+          className="px-2.5 py-6 max-w-2xl text-sm md:text-base"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1 }}
+        >
           *We will pursue these objectives until every Nation in the world is
           reached for the Lord Jesus Christ.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
     </>
   );
 }
@@ -184,17 +231,25 @@ function MissionAndVision() {
 function CoreValues() {
   return (
     <>
-      <h2
+      <motion.h2
         className={`text-[32px] md:text-[40px] font-bold mb-3 ${anton.className} col-span-3`}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
       >
         Our Core
         <br />
         Values
-      </h2>
+      </motion.h2>
 
-      <div className="bg-[#FAFAFA0A] p-2.5 rounded-sm col-span-4">
+      <motion.div 
+        className="bg-[#FAFAFA0A] p-2.5 rounded-sm col-span-4"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
         <CoreValueAccordion values={coreValues} />
-      </div>
+      </motion.div>
     </>
   );
 }

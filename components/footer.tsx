@@ -46,11 +46,6 @@ export default function Footer() {
                 Connect
               </Link>
             </li>
-            <li>
-              <Link href="/resources" className="hover:text-white">
-                Resources
-              </Link>
-            </li>
           </ul>
         </div>
 
@@ -59,18 +54,13 @@ export default function Footer() {
           <h3 className="text-lg font-bold mb-5">Resources</h3>
           <ul className="space-y-5">
             <li>
-              <Link href="/programs-events" className="hover:text-white">
-                Programs & Events
+              <Link href="/sermons" className="hover:text-white">
+                Sermons
               </Link>
             </li>
             <li>
-              <Link href="/volunteer" className="hover:text-white">
-                Volunteer
-              </Link>
-            </li>
-            <li>
-              <Link href="/events-calendar" className="hover:text-white">
-                Events Calendar
+              <Link href="/gallery" className="hover:text-white">
+                Gallery
               </Link>
             </li>
             <li>
@@ -79,8 +69,8 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/membership-form" className="hover:text-white">
-                Membership Form
+              <Link href="/#programmes-events" className="hover:text-white">
+                Programs & Events
               </Link>
             </li>
           </ul>

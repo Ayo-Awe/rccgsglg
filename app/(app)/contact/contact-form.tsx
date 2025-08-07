@@ -44,6 +44,7 @@ const formSchema = z.object({
 
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
+  const contactEmail = "info@rccgsglg.com"; // Dummy email
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -56,13 +57,20 @@ export default function ContactForm() {
     },
   });
 
-  async function onSubmit() {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     try {
-      // Here you would typically send the form data to your backend
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
-      toast("Message sent!", {
-        description: "We'll get back to you as soon as possible.",
+      const fullName = `${values.firstName} ${values.lastName}`;
+      const mailtoLink = `mailto:${contactEmail}?subject=${encodeURIComponent(
+        `Contact Form Submission from ${fullName}`
+      )}&body=${encodeURIComponent(
+        `Dear Team,\n\nYou have received a new message from the website contact form.\n\nName: ${fullName}\nEmail: ${values.email}\nPhone: ${values.phone || 'Not provided'}\n\nMessage:\n${values.message}\n\nPlease respond to this inquiry at your earliest convenience.\n\nBest regards,\n${fullName}`
+      )}`;
+      
+      window.location.href = mailtoLink;
+      
+      toast("Message prepared!", {
+        description: "Your email client should open with the message ready to send.",
       });
       form.reset();
     } catch {
@@ -76,10 +84,7 @@ export default function ContactForm() {
 
   return (
     <Card
-      className="border-none rounded-3xl py-10"
-      style={{
-        boxShadow: "4px 4px 24px 0px #00000040",
-      }}
+      className="border-2 border-gray-200 rounded-3xl py-10"
     >
       <CardHeader>
         <CardTitle className="font-roboto font-semibold text-xl md:text-2xl text-rccg-dark-blue">
@@ -109,7 +114,7 @@ export default function ContactForm() {
                       <Input
                         placeholder="Your First name"
                         {...field}
-                        className="border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#CBD5E1] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
+                        className="border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#64748B] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
                       />
                     </FormControl>
                     <FormMessage />
@@ -128,7 +133,7 @@ export default function ContactForm() {
                       <Input
                         placeholder="Your Last name"
                         {...field}
-                        className="border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#CBD5E1] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
+                        className="border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#64748B] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
                       />
                     </FormControl>
                     <FormMessage />
@@ -150,7 +155,7 @@ export default function ContactForm() {
                       <Input
                         placeholder="Sample@gmail.com"
                         {...field}
-                        className="border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#CBD5E1] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
+                        className="border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#64748B] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
                       />
                     </FormControl>
                     <FormMessage />
@@ -169,7 +174,7 @@ export default function ContactForm() {
                       <Input
                         placeholder="Your phone number"
                         {...field}
-                        className="border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#CBD5E1] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
+                        className="border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#64748B] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
                       />
                     </FormControl>
                     <FormMessage />
@@ -189,7 +194,7 @@ export default function ContactForm() {
                   <FormControl>
                     <Textarea
                       placeholder="Type your message here......"
-                      className="min-h-[160px] border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#CBD5E1] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
+                      className="min-h-[160px] border-[#F1F5F9] placeholder:font-roboto placeholder:font-medium placeholder:text-[#64748B] placeholder:text-sm md:placeholder:text-base shadow-none h-12"
                       {...field}
                     />
                   </FormControl>

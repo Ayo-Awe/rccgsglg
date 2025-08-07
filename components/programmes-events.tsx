@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import * as motion from "motion/react-client";
 import { Anton } from "next/font/google";
 
@@ -44,7 +43,10 @@ const events = [
 
 export default function ProgrammesEvents() {
   return (
-    <section className="mb-6 rounded-3xl overflow-hidden px-7.5 py-6 bg-[#F8F8F8]">
+    <section
+      id="programmes-events"
+      className="mb-6 rounded-3xl overflow-hidden px-7.5 py-6 bg-[#F8F8F8]"
+    >
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
@@ -78,23 +80,10 @@ export default function ProgrammesEvents() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             Stay connected with us! From weekly gatherings to special events,
-            there&apos;s always something for you. Check out our calendar and join
-            us!
+            there&apos;s always something for you. Check out our calendar and
+            join us!
           </motion.p>
         </div>
-
-        {/* Theme Toggle */}
-        <motion.div
-          className="flex items-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <Button variant="outline" className="ml-6 rounded-full px-6">
-            See More
-          </Button>
-        </motion.div>
       </div>
 
       {/* Events Grid */}
