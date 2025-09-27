@@ -82,7 +82,7 @@ export default function Footer() {
           <ul className="space-y-4">
             <ContatItem
               icon={<Phone className="w-4 h-9" />}
-              subtext="+44 20 3752 4087"
+              subtext="+44 20 3752 4087 / 07834990783"
               title="Call Us"
             />
             <ContatItem

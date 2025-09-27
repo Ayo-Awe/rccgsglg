@@ -1,7 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
@@ -79,29 +76,28 @@ export default function HeroCarousel() {
                   </span>{" "}
                   {slide.subtitle.split(" ").slice(1).join(" ")}
                 </motion.h2>
-                <motion.p
-                  className="max-w-2xl mb-8 text-center {}"
+                <motion.div
+                  className="bg-white px-4 py-2 rounded-full mb-4 flex items-center justify-center max-w-fit mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
+                  transition={{ duration: 0.6, delay: 0.9 }}
                 >
-                  {slide.description}
-                </motion.p>
+                  <span className="text-sm md:text-lg mr-2">📍</span>
+                  <span className="text-sm md:text-lg text-center text-rccg-dark-blue font-medium">
+                    L01 -LO2 Studio Hall, Pimlico Academy Lupus Street, London.
+                    SW1V 3AT
+                  </span>
+                </motion.div>
                 <motion.div
+                  className="bg-white px-4 py-2 rounded-full flex items-center justify-center max-w-fit mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.0 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                 >
-                  <Button
-                    asChild
-                    className="bg-[#d4af37] hover:bg-[#b8971f] text-white"
-                  >
-                    <Link href={slide.buttonLink} className="flex items-center">
-                      {slide.buttonText} <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                  <span className="text-sm md:text-lg mr-2">📞</span>
+                  <span className="text-sm md:text-lg text-center text-rccg-dark-blue font-medium">
+                    Call Us: +44 20 3752 4087 / 07834990783
+                  </span>
                 </motion.div>
               </div>
             </div>
