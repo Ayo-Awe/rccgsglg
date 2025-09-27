@@ -42,7 +42,7 @@ export default function RootLayout({
       <body
         className={`${lato.className} ${lato.variable} ${anton.variable} ${roboto.variable}`}
       >
-        <div className=" px-4 sm:px-8 pb-4 sm:pb-8 max-w-[1440px] mx-auto">
+        <div className=" px-2 sm:px-8 pb-4 sm:pb-8 max-w-[1440px] mx-auto">
           <ThemeProvider attribute="class" defaultTheme="light">
             <Navbar />
             <Providers>{children}</Providers>

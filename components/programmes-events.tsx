@@ -45,7 +45,7 @@ export default function ProgrammesEvents() {
   return (
     <section
       id="programmes-events"
-      className="mb-6 rounded-3xl overflow-hidden px-7.5 py-6 bg-[#F8F8F8]"
+      className="mb-6 rounded-3xl overflow-hidden px-5 md:px-7.5 py-6 bg-[#F8F8F8]"
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
@@ -87,7 +87,7 @@ export default function ProgrammesEvents() {
       </div>
 
       {/* Events Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6.5 px-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6.5 md:px-5">
         {events.map((event, index) => (
           <motion.div
             key={event.id}
