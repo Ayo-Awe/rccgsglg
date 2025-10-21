@@ -22,14 +22,24 @@ export function WordOfTheWeekModal({
 }: WordOfTheWeekModalProps) {
   if (!word) return null;
 
+  // Format word date as dd/mm/yyyy
+  const wordDate = new Date(word.date);
+  const formattedDate = `${wordDate
+  .getDate()
+  .toString()
+  .padStart(2, "0")}/${(wordDate.getMonth() + 1)
+  .toString()
+  .padStart(2, "0")}/${wordDate.getFullYear()}`;
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="bg-white rounded-xl p-4 sm:max-w-md">
         <DialogHeader>
           <div className="flex items-end gap-3">
             <RccgLogo className="w-9.5 h-9.5" />
-            <DialogTitle className="text-lg font-semibold text-gray-800">
-              God&apos;s word for the week
+            <DialogTitle className="text-lg font-semibold text-gray-800 flex items-center gap-1">
+              God&apos;s word for the week -{" "}
+              <span className="text-base font-normal">{formattedDate}</span>
             </DialogTitle>
           </div>
         </DialogHeader>

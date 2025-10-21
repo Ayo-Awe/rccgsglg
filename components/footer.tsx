@@ -1,17 +1,15 @@
 import Link from "next/link";
 import {
-  RccgLogo,
-  Facebook,
-  Instagram,
-  FeYoutube,
-  AkarIconsXFill,
-  Phone,
-  Location,
+RccgLogo,
+Facebook,
+Instagram,
+AkarIconsXFill,
+Phone,
+Location,
 } from "@/components/icons";
 
 const FacebookIcon = () => <Facebook className="w-4 h-4" />;
 const InstagramIcon = () => <Instagram className="w-4 h-4" />;
-const YoutubeIcon = () => <FeYoutube className="w-4 h-4" />;
 const TwitterIcon = () => <AkarIconsXFill className="w-4 h-4" />;
 
 export default function Footer() {
@@ -36,16 +34,16 @@ export default function Footer() {
         <div className="sm:mx-auto ">
           <h3 className="text-lg font-bold mb-5">Links</h3>
           <ul className="space-y-5">
-            <li>
-              <Link href="/about" className="hover:text-white">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/connect" className="hover:text-white">
-                Connect
-              </Link>
-            </li>
+          <li>
+          <Link href="/about" className="hover:text-white">
+          About
+          </Link>
+          </li>
+          <li>
+          <Link href="https://www.youtube.com/@rccglive" className="hover:text-white" target="_blank" rel="noopener noreferrer">
+          RCCG YouTube
+          </Link>
+          </li>
           </ul>
         </div>
 
@@ -53,21 +51,21 @@ export default function Footer() {
         <div className="sm:mx-auto ">
           <h3 className="text-lg font-bold mb-5">Resources</h3>
           <ul className="space-y-5">
-            <li>
-              <Link href="/sermons" className="hover:text-white">
-                Sermons
-              </Link>
-            </li>
-            <li>
-              <Link href="/gallery" className="hover:text-white">
-                Gallery
-              </Link>
-            </li>
-            <li>
-              <Link href="/prayer-requests" className="hover:text-white">
-                Prayer Requests
-              </Link>
-            </li>
+          <li>
+          <Link href="/sermons" className="hover:text-white">
+          Sermons
+          </Link>
+          </li>
+          <li>
+          <Link href="/gallery" className="hover:text-white">
+          Gallery
+          </Link>
+          </li>
+          <li>
+          <Link href="/prayer-requests" className="hover:text-white">
+          Prayer Requests
+          </Link>
+          </li>
             <li>
               <Link href="/#programmes-events" className="hover:text-white">
                 Programs & Events
@@ -100,18 +98,15 @@ export default function Footer() {
         <p className="text-grey text-sm">Copyright ©</p>
         <p className="text-grey text-sm">All Rights Reserved 2010 RCCGSLG</p>
         <div className="flex space-x-4">
-          <Link href="#">
-            <FacebookIcon />
-          </Link>
-          <Link href="#">
-            <InstagramIcon />
-          </Link>
-          <Link href="#">
-            <YoutubeIcon />
-          </Link>
-          <Link href="#">
-            <TwitterIcon />
-          </Link>
+        <Link href="https://x.com/rccgsglg">
+        <TwitterIcon />
+        </Link>
+        <Link href="https://www.instagram.com/rccg_sglg/">
+        <InstagramIcon />
+        </Link>
+        <Link href="https://www.facebook.com/people/Shekhinah-Glory-of-the-Living-God-Parish-RCCG/100064857271277/">
+        <FacebookIcon />
+        </Link>
         </div>
       </div>
     </footer>

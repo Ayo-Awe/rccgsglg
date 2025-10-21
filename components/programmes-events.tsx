@@ -34,7 +34,7 @@ const events = [
   },
   {
     id: 4,
-    title: "Be Single Out",
+    title: "Be Singled Out",
     description: "Praise & worship all through",
     schedule: "-As one healed leper",
     image: "/events/be-single-out.jpg",

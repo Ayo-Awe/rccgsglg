@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   Carousel,
   CarouselContent,
@@ -77,17 +78,24 @@ export default function HeroCarousel() {
                   {slide.subtitle.split(" ").slice(1).join(" ")}
                 </motion.h2>
                 <motion.div
-                  className="bg-white px-4 py-2 rounded-full mb-4 flex items-center justify-center max-w-fit mx-auto"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.9 }}
+                className="bg-white px-4 py-2 rounded-full mb-4 flex items-center justify-center max-w-fit mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
                 >
-                  <span className="text-sm md:text-lg mr-2">📍</span>
-                  <span className="text-sm md:text-lg text-center text-rccg-dark-blue font-medium">
-                    L01 -LO2 Studio Hall, Pimlico Academy Lupus Street, London.
-                    SW1V 3AT
-                  </span>
-                </motion.div>
+                <Link
+                  href="https://www.google.com/maps?ll=51.126222,-0.126222&z=16&t=m&hl=en&gl=GB&mapclient=embed"
+                target="_blank"
+                rel="noopener noreferrer"
+                  className="flex items-center hover:opacity-80 transition-opacity"
+                  >
+                     <span className="text-sm md:text-lg mr-2">📍</span>
+                     <span className="text-sm md:text-lg text-center text-rccg-dark-blue font-medium">
+                       L01 -LO2 Studio Hall, Pimlico Academy Lupus Street, London.
+                       SW1V 3AT
+                     </span>
+                   </Link>
+                 </motion.div>
                 <motion.div
                   className="bg-white px-4 py-2 rounded-full flex items-center justify-center max-w-fit mx-auto"
                   initial={{ opacity: 0, y: 20 }}
