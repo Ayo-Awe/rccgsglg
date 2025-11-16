@@ -1,45 +1,12 @@
-import Image from "next/image";
 import * as motion from "motion/react-client";
 import { Anton } from "next/font/google";
+import { events } from "@/lib/data";
+import EventCard from "@/components/event-card";
 
 const anton = Anton({
   weight: "400",
   subsets: ["latin"],
 });
-
-const events = [
-  {
-    id: 1,
-    title: "Holy Ghost Anointing Service",
-    description:
-      "He has anointed us also by the gift of the Spirit.\nHe has definitely set us apart and designated us for the position;",
-    schedule: "-First Thursdays of the month",
-    image: "/events/holy-ghost-anointing.jpg",
-  },
-  {
-    id: 2,
-    title: "Faith Clinic",
-    description:
-      "Have you been searching for a Spirit filled church where God's Word is preached with power and authority?",
-    schedule: "-RCCG, SGLG",
-    image: "/events/faith-clinic.jpg",
-  },
-  {
-    id: 3,
-    title: "An Hour At His Throne",
-    description:
-      "An intensive prayer session for one hour that only you can pray which no one else can do for you.",
-    schedule: "First Sunday of the month",
-    image: "/events/prayer-hour.jpg",
-  },
-  {
-    id: 4,
-    title: "Be Singled Out",
-    description: "Praise & worship all through",
-    schedule: "-As one healed leper",
-    image: "/events/be-single-out.jpg",
-  },
-];
 
 export default function ProgrammesEvents() {
   return (
@@ -48,7 +15,7 @@ export default function ProgrammesEvents() {
       className="mb-6 rounded-3xl overflow-hidden px-5 md:px-7.5 py-6 bg-[#F8F8F8]"
     >
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-8 gap-4">
         <div>
           <motion.div
             className="flex items-center w-fit mb-4 bg-[#fafafa] px-3.75 py-2.5 rounded-full"
@@ -84,40 +51,23 @@ export default function ProgrammesEvents() {
             join us!
           </motion.p>
         </div>
+        
+        <motion.a
+          href="/events"
+          className="h-11 px-6 flex items-center bg-transparent border border-rccg-yellow text-rccg-dark-blue text-lg rounded-lg hover:bg-rccg-yellow hover:text-white transition-all duration-300 whitespace-nowrap"
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          See More
+        </motion.a>
       </div>
 
       {/* Events Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6.5 md:px-5">
-        {events.map((event, index) => (
-          <motion.div
-            key={event.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="group overflow-hidden h-full border-none shadow-none rounded-lg flex flex-col"
-          >
-            <div className="overflow-hidden rounded-lg">
-              <Image
-                src={event.image}
-                alt={event.title}
-                width={300}
-                height={250}
-                className="object-cover h-[250px] w-full rounded-lg transition-transform duration-300 group-hover:scale-110"
-              />
-            </div>
-            <div className="mt-4 flex-grow">
-              <h3 className="font-bold text-xl text-[#1a1a2e] mb-3 leading-tight">
-                {event.title}
-              </h3>
-              <p className="text-rccg-dark-blue text-base mb-4 leading-relaxed">
-                {event.description}
-              </p>
-            </div>
-            <p className="text-rccg-yellow text-base font-medium text-right mt-auto">
-              {event.schedule}
-            </p>
-          </motion.div>
+        {events.slice(0, 4).map((event, index) => (
+          <EventCard key={event.id} event={event} index={index} variant="compact" />
         ))}
       </div>
     </section>
