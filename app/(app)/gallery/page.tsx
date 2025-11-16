@@ -50,55 +50,55 @@ function Hero() {
   );
 }
 
-// Sample gallery images - using existing images from public folder
+// Gallery images from the new uploads plus pastor image
 const galleryImages = [
   {
     id: 1,
     src: "/backgrounds/pastor.png",
-    alt: "Pastor and congregation",
-    title: "Sunday Service",
+    alt: "",
+    title: "",
   },
   {
     id: 2,
-    src: "/events/prayer-hour.jpg",
-    alt: "Prayer hour",
-    title: "Prayer Hour",
+    src: "/gallery/IMG_0767.JPEG",
+    alt: "",
+    title: "",
   },
   {
     id: 3,
-    src: "/events/faith-clinic.jpg",
-    alt: "Faith clinic event",
-    title: "Faith Clinic",
+    src: "/gallery/IMG_0804.JPG",
+    alt: "",
+    title: "",
   },
   {
     id: 4,
-    src: "/events/holy-ghost-anointing.jpg",
-    alt: "Holy ghost anointing service",
-    title: "Holy Ghost Anointing",
+    src: "/gallery/IMG_1583.JPEG",
+    alt: "",
+    title: "",
   },
   {
     id: 5,
-    src: "/events/be-single-out.jpg",
-    alt: "Singles ministry event",
-    title: "Singles Ministry",
+    src: "/gallery/IMG_1639.JPG",
+    alt: "",
+    title: "",
   },
   {
     id: 6,
-    src: "/backgrounds/home_workforce.png",
-    alt: "Church workforce",
-    title: "Church Workforce",
+    src: "/gallery/IMG_2253.JPEG",
+    alt: "",
+    title: "",
   },
   {
     id: 7,
-    src: "/backgrounds/testimony_bg.jpeg",
-    alt: "Testimony service",
-    title: "Testimony Service",
+    src: "/gallery/IMG_2873.JPEG",
+    alt: "",
+    title: "",
   },
   {
     id: 8,
-    src: "/heroes/ministries_hero.jpg",
-    alt: "Church ministries",
-    title: "Church Ministries",
+    src: "/gallery/IMG_3008.JPEG",
+    alt: "",
+    title: "",
   },
 ];
 
