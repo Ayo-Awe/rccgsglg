@@ -208,7 +208,7 @@ pnpm start
 
 ## 📝 License
 
-This project is private and proprietary to Shekinah Glory of the Living God church.
+This project is proprietary to Shekinah Glory of the Living God church.
 
 ## 🆘 Support
 
