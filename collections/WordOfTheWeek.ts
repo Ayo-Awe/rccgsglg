@@ -1,5 +1,7 @@
 import type { CollectionConfig } from "payload";
 
+// Entries are also created by the email worker in workers/wotw-email, which
+// posts content, date and scriptureReferences. Update it if these fields change.
 export const WordOfTheWeek: CollectionConfig = {
   slug: "word-of-the-week",
   admin: {
